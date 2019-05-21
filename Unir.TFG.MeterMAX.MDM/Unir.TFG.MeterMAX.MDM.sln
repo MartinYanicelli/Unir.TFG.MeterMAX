@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unir.TFG.MeterMAX.MDM.Domain", "Unir.TFG.MeterMAX.MDM.Domain\Unir.TFG.MeterMAX.MDM.Domain.csproj", "{458677B6-BA75-4BB6-86D3-31A7D1E9EE43}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{F1239958-AFFD-45D3-974B-67C7FEEA994D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infraestructure", "Infraestructure", "{6E3B6E1B-7037-4586-AAA6-524CF971A61E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{65B00A82-F87D-450D-9E00-79F8EFF563C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unir.TFG.MeterMAX.MDM.Logic", "Unir.TFG.MeterMAX.MDM.Logic\Unir.TFG.MeterMAX.MDM.Logic.csproj", "{B5D189EA-1994-4250-90F3-A7D6F11512C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unir.TFG.MeterMAX.MDM.Repository", "Unir.TFG.MeterMAX.MDM.Repository\Unir.TFG.MeterMAX.MDM.Repository.csproj", "{3F5E5CFF-A71E-41CB-B8B5-D83452AFDD23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unir.TFG.MeterMAX.MDM.App.Wpf", "Unir.TFG.MeterMAX.MDM.App.Wpf\Unir.TFG.MeterMAX.MDM.App.Wpf.csproj", "{D9C7D458-21D2-4317-9E30-B762442D500E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{9F7CF36E-23E1-4164-A357-15E43BBFE8C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{458677B6-BA75-4BB6-86D3-31A7D1E9EE43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{458677B6-BA75-4BB6-86D3-31A7D1E9EE43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{458677B6-BA75-4BB6-86D3-31A7D1E9EE43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{458677B6-BA75-4BB6-86D3-31A7D1E9EE43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5D189EA-1994-4250-90F3-A7D6F11512C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5D189EA-1994-4250-90F3-A7D6F11512C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5D189EA-1994-4250-90F3-A7D6F11512C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5D189EA-1994-4250-90F3-A7D6F11512C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F5E5CFF-A71E-41CB-B8B5-D83452AFDD23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F5E5CFF-A71E-41CB-B8B5-D83452AFDD23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F5E5CFF-A71E-41CB-B8B5-D83452AFDD23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F5E5CFF-A71E-41CB-B8B5-D83452AFDD23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9C7D458-21D2-4317-9E30-B762442D500E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C7D458-21D2-4317-9E30-B762442D500E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9C7D458-21D2-4317-9E30-B762442D500E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C7D458-21D2-4317-9E30-B762442D500E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{458677B6-BA75-4BB6-86D3-31A7D1E9EE43} = {F1239958-AFFD-45D3-974B-67C7FEEA994D}
+		{B5D189EA-1994-4250-90F3-A7D6F11512C4} = {6E3B6E1B-7037-4586-AAA6-524CF971A61E}
+		{3F5E5CFF-A71E-41CB-B8B5-D83452AFDD23} = {6E3B6E1B-7037-4586-AAA6-524CF971A61E}
+		{D9C7D458-21D2-4317-9E30-B762442D500E} = {9F7CF36E-23E1-4164-A357-15E43BBFE8C2}
+		{9F7CF36E-23E1-4164-A357-15E43BBFE8C2} = {65B00A82-F87D-450D-9E00-79F8EFF563C2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D67BE70C-21CA-4F9C-B00D-3151A61704CD}
+	EndGlobalSection
+EndGlobal
