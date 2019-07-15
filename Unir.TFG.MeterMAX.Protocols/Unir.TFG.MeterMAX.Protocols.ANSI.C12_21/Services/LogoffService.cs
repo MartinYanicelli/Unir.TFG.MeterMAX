@@ -32,7 +32,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services
         }
         #endregion
 
-        protected override Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Packets.Packet OnCreateRequestPacket()
+        protected override Packet OnCreateRequestPacket()
         {
             Packet packet = base.OnCreateRequestPacket();
             packet.CTRL = 0x20;

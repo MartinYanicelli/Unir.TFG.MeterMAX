@@ -7,14 +7,14 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Enumerations
 {
     public enum SessionType
     {
-        Optical,
+        Insitu,
         Remote
     }
 
-    public enum OpticalSessionType
+    public enum InsituSessionType
     {
-        Standard,
-        Pic,
-        Bluetooth
+        RS232,
+        PicDevice,
+        BluetoothDevice
     }
 }

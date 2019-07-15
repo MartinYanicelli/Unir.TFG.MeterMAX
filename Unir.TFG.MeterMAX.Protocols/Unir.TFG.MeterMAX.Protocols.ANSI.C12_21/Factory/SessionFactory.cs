@@ -13,16 +13,16 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Factory
         public static ISession Creator(SessionType type, params object[] args)
         {
             if ((args == null) ||
-                ((type == SessionType.Optical) && ((args.Length != 4) && (args.Length != 5) && (args.Length != 8) && (args.Length != 9) && (args.Length != 10))) ||
+                ((type == SessionType.Insitu) && ((args.Length != 4) && (args.Length != 5) && (args.Length != 8) && (args.Length != 9) && (args.Length != 10))) ||
                 ((type == SessionType.Remote) && ((args.Length != 7) && (args.Length != 8) && (args.Length != 9))))
                 throw new ArgumentException();
 
-            Type sessionType = (type == SessionType.Optical) ? typeof(OnPlaceSession) : typeof(RemoteSession);
+            Type sessionType = (type == SessionType.Insitu) ? typeof(InsituSession) : typeof(RemoteSession);
             ConstructorInfo sessionConstructor = null;
             Type[] constructorParamsTypes = null;
             object[] constructorParamsValues = null;
 
-            if (type == SessionType.Optical)
+            if (type == SessionType.Insitu)
             {
                 if (args.Length == 4)
                 {

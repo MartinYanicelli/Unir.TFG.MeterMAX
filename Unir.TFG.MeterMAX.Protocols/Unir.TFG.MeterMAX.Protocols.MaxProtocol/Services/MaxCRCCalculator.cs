@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services
+namespace Unir.TFG.MeterMAX.Protocols.MaxProtocol.Services
 {
-    internal class RemoteCRCCalculator
+    internal class MaxCRCCalculator
     {
         private const ushort POLY_MASK = 4129;
 

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services;
 using Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Enumerations;
 using Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services.Enumerations;
+using Unir.TFG.MeterMAX.Protocols.MaxProtocol.Services.Enumerations;
+using Unir.TFG.MeterMAX.Protocols.MaxProtocol.Services;
 
 namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
 {
@@ -21,25 +23,24 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
         private readonly EndPoint _endPoint;
         private readonly int _startRemoteSessionAttempts;
 
-        // Inicia una sesión de comunicación enviando el mensaje StartRemoteSession propietario de Noanet al dispositivo remoto.
-        private readonly bool _startCustomSession;
+        // flag para indicar si debemos utilizar el protocolo de comunicación propietario para el inicio de sesión remota.
+        private readonly bool _userMaxProtocol;
 
         protected override bool IsPortReady
         {
-            get { return (Port != null) && Port.Connected; }
+            get { return Port?.Connected ?? false; }
         }
 
-        protected override int DefaultCommunicationTimeout => 30500;
+        protected override int DefaultCommunicationTimeout => 30000; // El Protocolo ANSI 12.21 define 30 segundos como tiempo máximo de espera en el canal de comunicación durante un lectura por su puerto RS232
         #endregion
 
-
         #region Constructor
-        public RemoteSession(string ip, int portNumber, int userId, string userName, string password, int? sendAckResponseThershold, int? startRemoteSessionAttempts, NegotiationSetting negotiationSetting = null, TimingSetting timingSetting = null,  bool startCustomSession = true)
+        public RemoteSession(string ip, int portNumber, int userId, string userName, string password, int? sendAckResponseThershold, int? startRemoteSessionAttempts, NegotiationSetting negotiationSetting = null, TimingSetting timingSetting = null,  bool useMaxProtocol = true)
             : base(userId, userName, password, sendAckResponseThershold, null, negotiationSetting, timingSetting)
         {
             _endPoint = new IPEndPoint(IPAddress.Parse(ip), portNumber);
             _startRemoteSessionAttempts = startRemoteSessionAttempts ?? DefaultStartRemoteSessionAttempts;
-            _startCustomSession = startCustomSession;
+            _userMaxProtocol = useMaxProtocol;
         }
 
         #endregion
@@ -53,40 +54,38 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             //};
         }
 
-        protected override bool OpenPort()
+        protected override async Task OpenPortAsync()
         {
-            try
-            {
-                Port.Connect(_endPoint);
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex);
-
-                if (IsPortReady)
+            await Task.Run(() => {
+                try
                 {
-                    logger.Error(ex);
-
-                    ClosePort();
-                    OnSessionClosed("Sesión cancelada por problemas con puerto de comunicación remoto.");
+                    Port.Connect(_endPoint);
                 }
-            }
+                catch (Exception ex)
+                {
+                    logger.Error(ex, nameof(OpenPortAsync));
 
-            return IsPortReady;
+                    //if (IsPortReady)
+                    //{
+                    //    ClosePort();
+                    //    OnSessionClosed("Sesión cancelada por problemas con puerto de comunicación remoto.");
+                    //}
+                }
+            }, cancellationTokenSource.Token);
         }
+    
 
-        protected override bool ClosePort()
+        protected override void ClosePort()
         {
-            var result = false;
+            cancellationTokenSource?.Cancel();
+
             try
             {
                 if (IsPortReady)
                 {
                     Port.Shutdown(SocketShutdown.Both);
                     Port.Close(100);
-                    Port.Dispose();
                 }
-                result = true;
             }
             catch (Exception ex)
             {
@@ -94,14 +93,14 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             }
             finally
             {
+                Port.Dispose();
                 Port = null;
             }
-            return result;
         }
 
         protected override bool OnSendToBuffer(byte[] data)
         {
-            return Port.Send(data) == data.Length;
+            return Port?.Send(data) == data.Length;
         }
 
         public override void Pause()
@@ -115,9 +114,9 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             //}
         }
 
-        protected override void OnResume()
+        protected override async void OnResume()
         {
-            OpenPort();
+            await OpenPortAsync();
 
             //if (IsSessionReady && (socketDataReceivedThread == null))
             //{
@@ -126,21 +125,21 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             //}
         }
 
-        protected virtual void SocketDataReceived()
+        private void SocketDataReceived(CancellationToken cancellationToken)
         {
-            try
+            while (!cancellationToken.IsCancellationRequested && IsPortReady)
             {
-                while (IsPortReady)
+                var buffer = new byte[BUFFER_LENGHT];
+                int bytesReceived = Port?.Receive(buffer) ?? 0;
+                if (bytesReceived > 0)
                 {
-                    var buffer = new byte[BUFFER_LENGHT];
-                    int bytesReceived = Port.Receive(buffer);
                     var data = new byte[bytesReceived];
                     Buffer.BlockCopy(buffer, 0, data, 0, data.Length);
 
                     OnRawDataReceived(data);
                     dataLinkPacket.AddBytes(data);
 
-                    while (dataLinkPacket.GetRemainingLength() > 0)
+                    while ((dataLinkPacket.GetRemainingLength() > 0) && !cancellationToken.IsCancellationRequested)
                     {
                         dataLinkPacket.ProcessPacket();
                         if (dataLinkPacket.PacketCompleted)
@@ -149,63 +148,60 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
                             {
                                 OnDataReceived(dataLinkPacket.GetPacket());
                             }
-                            else if (dataLinkPacket.Type == PacketType.ACK)
+                            else if (dataLinkPacket.Type == PacketType.Ack)
                             {
                                 // ACK
                                 System.Diagnostics.Debug.WriteLine(string.Format("ACK received {0}", Phase));
                             }
                         }
                     }
+
                 }
             }
-            catch (ThreadAbortException abortException)
-            {
-                logger.Error((string)abortException.ExceptionState);
-            }
-            catch (Exception ex)
+
+            if (cancellationToken.IsCancellationRequested)
             {
                 if (IsPortReady)
                 {
-                    logger.Error(ex);
-
                     ClosePort();
-                    OnSessionClosed("Sesión cancelada por problemas con puerto de comunicación remoto.");
+                    OnSessionClosed("Sesión remota cancelada por el usuario..");
                 }
             }
         }
 
         protected override void OnSessionStart()
         {
-            if (_startCustomSession)
+            CancellationToken cancellationToken = cancellationTokenSource.Token;
+            if (_userMaxProtocol)
             {
-                var remoteServiceResponseCode = RemoteServiceResponseCode.Unknow;
+                var maxServiceResponseCode = MaxServiceResponseCode.Unknow;
 
                 try
                 {
-                    var startSessionService = new StartSessionService(CommunicationTimeout);
+                    var startRemoteSessionService = new StartRemoteSessionService(CommunicationTimeout);
                     Port.ReceiveTimeout = CommunicationTimeout;
                     var startRemoteSessionCounter = 1;
 
-                    while ((remoteServiceResponseCode == RemoteServiceResponseCode.Unknow) && (startRemoteSessionCounter <= _startRemoteSessionAttempts))
+                    while ((maxServiceResponseCode == MaxServiceResponseCode.Unknow) && (startRemoteSessionCounter <= _startRemoteSessionAttempts) && !cancellationToken.IsCancellationRequested)
                     {
-                        SendToBuffer(startSessionService.SendRequest());
+                        SendToBuffer(startRemoteSessionService.SendRequest());
 
                         try
                         {
-                            var remoteDataLinkPacket = new Packets.RemoteDataLinkPacket(RemoteServiceType.ShortService, RemoteServiceResponseFormat.ResponseWithoutData);
+                            var maxDataLinkPacket = new MaxProtocol.Packets.MaxDataLinkPacket(MaxServiceType.ShortService, MaxServiceResponseFormat.ResponseWithoutData);
                             var buffer = new byte[BUFFER_LENGHT];
                             int bytesReceived = Port.Receive(buffer);
                             var data = new byte[bytesReceived];
                             Buffer.BlockCopy(buffer, 0, data, 0, data.Length);
 
-                            remoteDataLinkPacket.AddBytes(data);
-                            while (remoteDataLinkPacket.GetRemainingLength() > 0)
+                            maxDataLinkPacket.AddBytes(data);
+                            while ((maxDataLinkPacket.GetRemainingLength() > 0) && !cancellationToken.IsCancellationRequested)
                             {
-                                remoteDataLinkPacket.ProcessPacket();
-                                if (remoteDataLinkPacket.PacketCompleted)
+                                maxDataLinkPacket.ProcessPacket();
+                                if (maxDataLinkPacket.PacketCompleted)
                                 {
-                                    startSessionService.ProcessResponse(remoteDataLinkPacket.GetPacket());
-                                    remoteServiceResponseCode = startSessionService.ResponseCode;
+                                    startRemoteSessionService.ProcessResponse(maxDataLinkPacket.GetPacket());
+                                    maxServiceResponseCode = startRemoteSessionService.ResponseCode;
                                 }
                             }
                             startRemoteSessionCounter++;
@@ -220,63 +216,61 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
                             {
                                 logger.Error(ex, nameof(OnSessionStart));
 
-                                if (ex is ServiceException serviceException)
+                                if (ex is MaxServiceException maxServiceException)
                                 {
-                                    switch (serviceException.Type)
+                                    switch (maxServiceException.Type)
                                     {
-                                        case ServiceExceptionType.PacketIntegrity:
-                                            remoteServiceResponseCode = RemoteServiceResponseCode.BadCRC;
+                                        case MaxServiceExceptionType.PacketIntegrity:
+                                            maxServiceResponseCode = MaxServiceResponseCode.BadCRC;
                                             break;
-                                        case ServiceExceptionType.PacketLenght:
-                                            remoteServiceResponseCode = RemoteServiceResponseCode.IllegalComandSyntaxLenght;
+                                        case MaxServiceExceptionType.PacketLenght:
+                                            maxServiceResponseCode = MaxServiceResponseCode.IllegalComandSyntaxLenght;
                                             break;
-                                        case ServiceExceptionType.ArgumentError:
-                                            remoteServiceResponseCode = RemoteServiceResponseCode.RequestNotSupported;
+                                        case MaxServiceExceptionType.ArgumentError:
+                                            maxServiceResponseCode = MaxServiceResponseCode.RequestNotSupported;
                                             break;
-                                        case ServiceExceptionType.FatalError:
-                                            remoteServiceResponseCode = RemoteServiceResponseCode.FatalError;
+                                        case MaxServiceExceptionType.FatalError:
+                                            maxServiceResponseCode = MaxServiceResponseCode.FatalError;
                                             break;
                                     }
                                 }
                                 else
                                 {
-                                    remoteServiceResponseCode = RemoteServiceResponseCode.FatalError;
+                                    maxServiceResponseCode = MaxServiceResponseCode.FatalError;
                                 }
                             }
                         }
                     }
 
-                    if ((startRemoteSessionCounter > _startRemoteSessionAttempts) && (remoteServiceResponseCode == RemoteServiceResponseCode.Unknow))
+                    if ((startRemoteSessionCounter > _startRemoteSessionAttempts) && (maxServiceResponseCode == MaxServiceResponseCode.Unknow))
                     {
-                        remoteServiceResponseCode = RemoteServiceResponseCode.TimeOutError;
+                        maxServiceResponseCode = MaxServiceResponseCode.TimeOutError;
                     }
                 }
                 catch (Exception ex)
                 {
                     logger.Error(ex, nameof(OnSessionStart));
-                    remoteServiceResponseCode = RemoteServiceResponseCode.FatalError;
+                    maxServiceResponseCode = MaxServiceResponseCode.FatalError;
                 }
                 finally
                 {
                     Port.ReceiveTimeout = 0; // dejamos nuevamente el valor por defecto (timeout infinito)
                 }
 
-                if (remoteServiceResponseCode == RemoteServiceResponseCode.Ok)
+                if (maxServiceResponseCode == MaxServiceResponseCode.Ok)
                 {
-                    var socketDataReceivedThread = new Thread(new ThreadStart(SocketDataReceived));
-                    socketDataReceivedThread.Start();
+                    Task.Run(() => SocketDataReceived(cancellationToken), cancellationToken);
                     base.OnSessionStart();
                 }
                 else
                 {
                     ClosePort();
-                    OnSessionClosed($"No se puede establecer comunicación remota con el medidor. Código de Error: {remoteServiceResponseCode}");
+                    OnSessionClosed($"No se puede establecer comunicación remota con el medidor utilizando el protocolo MeterMAX. Código de Error: {maxServiceResponseCode}");
                 }
             }
             else
             {
-                var socketDataReceivedThread = new Thread(new ThreadStart(SocketDataReceived));
-                socketDataReceivedThread.Start();
+                Task.Run(() => SocketDataReceived(cancellationToken), cancellationToken);
                 base.OnSessionStart();
             }
         }

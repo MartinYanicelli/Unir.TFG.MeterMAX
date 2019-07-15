@@ -57,7 +57,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
         protected readonly int DefaultWaitMilliseconds = 300;
         protected readonly int DefaultSendAckResponseThreshold = 100;
         protected int AckResponseThreshold;
-        protected DataLinkPacket dataLinkPacket;
+        protected Packets.DataLinkPacket dataLinkPacket;
         protected IdentificationService identificationService;
         protected NegotiateService negotiateService;
         protected TimingSetupService timingSetupService;
@@ -68,6 +68,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
         /// Communication Timeout in milliseconds
         /// </summary>
         protected int CommunicationTimeout;
+        protected CancellationTokenSource cancellationTokenSource;
         #endregion
 
         #region Events
@@ -176,7 +177,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             _serviceExecutionStopwatch = new Stopwatch();
             SessionStatus = SessionStatus.Closed;
 
-            Phase = SessionPhase.Started;
+            Phase = SessionPhase.Idle;
             HandshakeState = HandshakeState.Identification;
             dataLinkPacket = new DataLinkPacket();
 
@@ -203,7 +204,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
         #endregion
 
         #region Public Methods
-        public async virtual void Start(CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task StartAsync()
         {
             if ((Services == null) || (Services.Count == 0))
                 throw new InvalidOperationException("No hay servicios PSEM disponibles para ejecutar.");
@@ -211,17 +212,18 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             if (IsSessionReady)
                 return;
 
+            cancellationTokenSource = new CancellationTokenSource();
+
             if (!IsPortReady)
             {
-                await System.Threading.Tasks.Task.Run<bool>(() => {
-                    OnSessionStarting();
+                OnSessionStarting();
 
-                    if (Port == null)
-                    {
-                        CreatePort();
-                    }
-                    return OpenPort();
-                }, cancellationToken);
+                if (Port == null)
+                {
+                    CreatePort();
+                }
+
+                await OpenPortAsync();
             }
 
             if (IsPortReady)
@@ -233,44 +235,12 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             {
                 OnSessionStartError("Se produjo un Error durante el inicio de sesión remota.");
             }
-
-            //var startSessionTask = System.Threading.Tasks.Task.Run(() =>
-            //{
-            //    if (!IsSessionReady)
-            //    {
-            //        OnSessionStarting();
-
-            //        if (Port == null)
-            //        {
-            //            CreatePort();
-            //        }
-
-            //        if (OpenPort())
-            //        {
-            //            OnSessionStarted();
-            //        }
-            //        else
-            //        {
-            //            OnSessionStartError("Se produjo un Error durante el inicio de sesión remota.");
-            //        }
-            //    }
-
-            //}).ContinueWith((task, ctoken) => {
-            //    if (IsSessionReady)
-            //    {
-            //        OnSessionStart();
-            //    }
-            //}, cancellationToken, System.Threading.Tasks.TaskContinuationOptions.OnlyOnRanToCompletion);
         }
-        public virtual void Start()
-        {
-            Start(CancellationToken.None);
-        }
-
-        public void Start(IList<IService> services)
+       
+        public async System.Threading.Tasks.Task StartAsync(IList<IService> services)
         {
             Services = services;
-            Start();
+            await StartAsync();
         }
 
         public virtual void Stop()
@@ -298,14 +268,15 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
         }
 
         /// <summary>
-        /// Inicia una nueva secuencia de ejecución de comandos. Los comandos se ejecutarán una vez
-        /// que la sesión este en fase (Body).
+        /// Reinicia la execución de los servicios a partir del último servicio ejecutado completo antes del cierre de sesión.
         /// </summary>
-        public virtual void StartServicesExecution()
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public virtual async System.Threading.Tasks.Task RestartAsync()
         {
             if (!IsSessionReady)
             {
-               Start();
+                await StartAsync();
             }
 
             if (IsSessionReady)
@@ -313,20 +284,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
                 if (serviceIndex >= Services.Count) serviceIndex = 0;
             }
         }
-
-        public void StartServicesExecution(IList<IService> services)
-        {
-            Services = services;
-            StartServicesExecution();
-        }
-
-        public virtual void RestartServicesExecution()
-        {
-            if (serviceIndex < Services.Count)
-            {
-                StartServicesExecution();
-            }
-        }
+       
         #endregion
 
         #region Protected Methods
@@ -342,7 +300,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
         protected void OnSessionStarted()
         {
             SessionStatus = SessionStatus.Started;
-            Phase = SessionPhase.Started;
+            Phase = SessionPhase.Idle;
             SessionStarted?.Invoke(this, new EventArgs());
         }
 
@@ -354,7 +312,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
 
         protected void OnSessionTimeout(object ticks)
         {
-            if (_watchdogTimer != null) _watchdogTimer.Change(-1, -1);
+            _watchdogTimer?.Change(-1, -1);
 
             lock (this)
             {
@@ -366,16 +324,9 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
 
                 if (Phase != SessionPhase.Terminate) 
                 {
-                    if (Phase != SessionPhase.TerminateAndRestart)
-                    {
-                        StartCloseSession(true);
-                    }
-                    else
-                    {
-                        //OnSessionClosed("Sesión cerrada para restablecer sesión automáticamente.");
-                        OnSessionStarted();
-                        BeginHandshake();
-                    }
+                    //OnSessionClosed("Sesión cerrada para restablecer sesión automáticamente.");
+                    OnSessionStarted();
+                    BeginHandshake();
                 }
                 else if (IsPortReady)
                 {
@@ -470,9 +421,9 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             SetMessage?.Invoke(this, new SetMessageEventArgs(message));
         }
 
-        protected abstract bool OpenPort();
+        protected abstract System.Threading.Tasks.Task OpenPortAsync();
 
-        protected abstract bool ClosePort();
+        protected abstract void ClosePort();
 
         protected void DisposePort()
         {
@@ -532,7 +483,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             BeginHandshake();
         }
 
-        protected void BeginHandshake(bool waitTimeout = false)
+        protected async void BeginHandshake(bool waitTimeout = false)
         {
             _watchdogTimer.Change(-1, -1);
 
@@ -543,7 +494,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
 
             if (waitTimeout)
             {
-                Thread.Sleep(4000); // CommunicationTimeout);
+                await System.Threading.Tasks.Task.Delay(4000, cancellationTokenSource.Token); 
             }
 
             Phase = SessionPhase.Handshake;
@@ -557,7 +508,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
 
         protected virtual void OnBeginHandshake()
         {
-            dataLinkPacket = new DataLinkPacket();
+            dataLinkPacket = new Packets.DataLinkPacket();
             SendToBuffer(identificationService.SendRequest());
             HandshakeState = HandshakeState.Identification;
         }
@@ -615,7 +566,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
 
         protected virtual void StartCloseSession(bool restartSession = false)
         {
-            if (Phase == SessionPhase.Started) // acaba de iniciar la sesión y todavía no se ejecutó el primer BeginHandshake
+            if (Phase == SessionPhase.Idle) // acaba de iniciar la sesión y todavía no se ejecutó el primer BeginHandshake
                 return;
 
             _watchdogTimer.Change(-1, -1); // desactivamos el temporizador de vigilancia de timeout
@@ -1116,6 +1067,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
                 {
                     lock (this)
                     {
+                        cancellationTokenSource?.Dispose();
                         _watchdogTimer?.Dispose();
                         _watchdogTimer = null;
                     }

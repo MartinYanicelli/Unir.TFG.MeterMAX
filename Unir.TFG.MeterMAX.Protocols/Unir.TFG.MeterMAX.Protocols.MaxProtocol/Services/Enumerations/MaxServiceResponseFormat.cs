@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services.Enumerations
+namespace Unir.TFG.MeterMAX.Protocols.MaxProtocol.Services.Enumerations
 {
-    public enum RemoteServiceResponseFormat
+    public enum MaxServiceResponseFormat
     {
         ResponseWithData,
         ResponseWithoutData

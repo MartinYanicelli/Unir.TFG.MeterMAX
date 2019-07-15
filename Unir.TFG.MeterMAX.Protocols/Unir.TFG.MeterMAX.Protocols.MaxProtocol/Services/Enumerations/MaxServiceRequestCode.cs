@@ -8,9 +8,9 @@ using System.Text;
  *  20H-7FH Codes in this range signify request codes
  * 
 */
-namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services.Enumerations
+namespace Unir.TFG.MeterMAX.Protocols.MaxProtocol.Services.Enumerations
 {
-    public enum RemoteServiceRequestCode : byte
+    public enum MaxServiceRequestCode : byte
     {
         StartRemoteSession = 0xF8,
         

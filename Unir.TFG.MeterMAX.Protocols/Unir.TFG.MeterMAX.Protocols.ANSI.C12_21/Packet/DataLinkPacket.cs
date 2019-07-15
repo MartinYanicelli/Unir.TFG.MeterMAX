@@ -67,7 +67,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Packets
 
                 if (first == 0x06) // ACK Response
                 {
-                    Type = PacketType.ACK;
+                    Type = PacketType.Ack;
                     PacketCompleted = true;
                 }
                 else if (first == 0xEE)

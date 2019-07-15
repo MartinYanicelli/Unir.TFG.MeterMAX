@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Packets
+namespace Unir.TFG.MeterMAX.Protocols.MaxProtocol.Packets
 {
-    public class RemotePacket
+    public class MaxPacket
     {
         public byte STX { get; set; }
 
@@ -23,7 +23,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Packets
         public byte? CRCL { get; set; }
         public byte? CRCH { get; set; }
 
-        public RemotePacket()
+        public MaxPacket()
         {
             STX = 0x02;
             DATA = new List<byte>();

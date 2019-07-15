@@ -63,7 +63,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services
             Setting = setting;
         }
 
-        protected override Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Packets.Packet OnCreatePacket()
+        protected override Packet OnCreatePacket()
         {
             Packet packet = base.OnCreatePacket();
             packet.CTRL = 0x20;

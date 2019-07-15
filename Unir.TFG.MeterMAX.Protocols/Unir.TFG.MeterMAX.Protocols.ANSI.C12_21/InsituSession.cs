@@ -8,7 +8,7 @@ using Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services;
 
 namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
 {
-    public class OnPlaceSession : SessionBase<SerialPort>
+    public class InsituSession : SessionBase<SerialPort>
     {
         #region Miembros Protegidos
         protected readonly string PortName;
@@ -24,14 +24,14 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
         protected SerialPinChangedEventHandler serialPinChangedEventHandler;
         #endregion
 
-        protected override bool IsPortReady => (Port != null) && Port.IsOpen;
+        protected override bool IsPortReady => Port?.IsOpen ?? false;
 
-        protected override int DefaultCommunicationTimeout => 6100;
+        protected override int DefaultCommunicationTimeout => 6000;
 
         #endregion
 
         #region Constructor
-        public OnPlaceSession(string portName, int userId, string userName, string password, int? sendAckResponseThershold, int? baudRate, bool? dtrEnabled, int? receivedBytesThershold, NegotiationSetting negotiationSetting = null, TimingSetting timingSetting = null)
+        public InsituSession(string portName, int userId, string userName, string password, int? sendAckResponseThershold, int? baudRate, bool? dtrEnabled, int? receivedBytesThershold, NegotiationSetting negotiationSetting = null, TimingSetting timingSetting = null)
             : base(userId, userName, password, sendAckResponseThershold, receivedBytesThershold, negotiationSetting, timingSetting)
         {
             PortName = portName;
@@ -43,19 +43,19 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             serialPinChangedEventHandler = new SerialPinChangedEventHandler(OnSerialPinChanged);
         }
 
-        public OnPlaceSession(string portName, int userId, string userName, string password, int? baudRate, int? receivedBytesThershold)
+        public InsituSession(string portName, int userId, string userName, string password, int? baudRate, int? receivedBytesThershold)
             : this(portName, userId, userName, password, null, baudRate, null, receivedBytesThershold)
         {
 
         }
 
-        public OnPlaceSession(string portName, int userId, string userName, string password, bool? dtrEnable)
+        public InsituSession(string portName, int userId, string userName, string password, bool? dtrEnable)
             : this(portName, userId, userName, password, null, 9600, dtrEnable, null)
         {
  
         }
 
-        public OnPlaceSession(string portName, int userId, string userName, string password)
+        public InsituSession(string portName, int userId, string userName, string password)
             : this(portName, userId, userName, password, null)
         {
  
@@ -99,12 +99,12 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             };
         }
 
-        protected override bool OpenPort()
+        protected override async System.Threading.Tasks.Task OpenPortAsync()
         {
-            return OpenPort(BaudRate, ReceivedBytesThreshold, null);
+            await OpenPortAsync(BaudRate, ReceivedBytesThreshold, null);
         }
 
-        protected bool OpenPort(int? baudRate, int? receivedBytesThreshold, int? waitMilliseconds)
+        protected async System.Threading.Tasks.Task OpenPortAsync(int? baudRate, int? receivedBytesThreshold, int? waitMilliseconds = null)
         {
             if (!IsPortReady)
             {
@@ -132,14 +132,10 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
                         Port.ReceivedBytesThreshold = receivedBytesThreshold.Value;
                     }
 
-                    Port.Open();
+                    await System.Threading.Tasks.Task.Run(() => Port.Open(), cancellationTokenSource.Token);
 
                     if (waitMilliseconds.HasValue)
                         System.Threading.Thread.Sleep(waitMilliseconds.Value);
-                }
-                catch (System.Threading.ThreadAbortException ex)
-                {
-                   logger.Warn("startThread Aborted", ex);
                 }
                 catch (Exception ex)
                 {
@@ -150,7 +146,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
                     if (oldReceivedBytesThreshold.HasValue)
                         Port.ReceivedBytesThreshold = oldReceivedBytesThreshold.Value;
 
-                    logger.Error(ex, nameof(OpenPort), new object[] { nameof(Port.PortName), Port.PortName, nameof(Port.BaudRate), Port.BaudRate, nameof(Port.DtrEnable), Port.DtrEnable, nameof(receivedBytesThreshold), receivedBytesThreshold, nameof(CommunicationTimeout), CommunicationTimeout });
+                    logger.Error(ex, nameof(OpenPortAsync), new object[] { nameof(Port.PortName), Port.PortName, nameof(Port.BaudRate), Port.BaudRate, nameof(Port.DtrEnable), Port.DtrEnable, nameof(receivedBytesThreshold), receivedBytesThreshold, nameof(CommunicationTimeout), CommunicationTimeout });
                 }
             }
 
@@ -160,17 +156,17 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
                 Port.ErrorReceived += serialErrorReceivedEventHandler;
                 Port.PinChanged += serialPinChangedEventHandler;
             }
-
-            return IsPortReady;
         }
 
-        protected override bool ClosePort()
+        protected override void ClosePort()
         {
-            return ClosePort(DefaultWaitMilliseconds);
+            ClosePort(DefaultWaitMilliseconds);
         }
 
-        protected virtual bool ClosePort(int? waitMilliseconds)
+        protected virtual void ClosePort(int? waitMilliseconds)
         {
+            cancellationTokenSource?.Cancel();
+
             if (IsPortReady)
             {
                 try
@@ -190,24 +186,20 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
                     logger.Error(ex, nameof(ClosePort), new object[] { nameof(IsSessionReady), IsSessionReady });
                 }
             }
-
-            return !IsPortReady;
         }
 
-        protected bool ChangeBaudRate(int newBaudRate, int? receivedBytesThreshold, int? waitMilliseconds)
+        protected async System.Threading.Tasks.Task ChangeBaudRateAsync(int newBaudRate, int? receivedBytesThreshold, int? waitMilliseconds)
         {
             if (Port == null)
-                return false;
+                return;
 
-            var result = false;
+            ClosePort(waitMilliseconds);
 
-            if (ClosePort(waitMilliseconds))
+            if (!IsPortReady)
             {
                 var oldBaudRate = Port.BaudRate;
-                result = OpenPort(newBaudRate, receivedBytesThreshold, null);
+                await OpenPortAsync(newBaudRate, receivedBytesThreshold);
             }
-
-            return result;
         }
 
         protected override void OnResume()
@@ -223,7 +215,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             
             try 
 	        {	        
-		        Port.Write(buffer, 0, buffer.Length);
+		        Port?.Write(buffer, 0, buffer.Length);
 	        }
 	        catch (Exception ex)
 	        {
@@ -234,7 +226,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             return result;
         }
 
-        protected override void OnBeginHandshake()
+        protected override async void OnBeginHandshake()
         {
             if (IsPortReady)
             {
@@ -249,22 +241,24 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
                     {
                         logger.Error(ex, "Error changing the baudrate when port is open");
                         // intentamos con método más seguro pero menos performante, cerrando y reabriendo el puerto...
-                        ChangeBaudRate(BaudRate.Value, ReceivedBytesThreshold, DefaultWaitMilliseconds);
+                        await ChangeBaudRateAsync(BaudRate.Value, ReceivedBytesThreshold, DefaultWaitMilliseconds);
                     }
                 }
 
-                if (ReceivedBytesThreshold.HasValue && (Port.ReceivedBytesThreshold != ReceivedBytesThreshold))
-                    Port.ReceivedBytesThreshold = ReceivedBytesThreshold.Value;
+                if (IsPortReady)
+                {
+                    if (ReceivedBytesThreshold.HasValue && (Port.ReceivedBytesThreshold != ReceivedBytesThreshold))
+                        Port.ReceivedBytesThreshold = ReceivedBytesThreshold.Value;
 
-                if (DtrEnabled.HasValue && (Port.DtrEnable != DtrEnabled))
-                    Port.DtrEnable = DtrEnabled.Value;
+                    if (DtrEnabled.HasValue && (Port.DtrEnable != DtrEnabled))
+                        Port.DtrEnable = DtrEnabled.Value;
 
-                // limpiamos el buffer inmediatamente...
-                Port.DiscardInBuffer();
+                    // limpiamos el buffer inmediatamente...
+                    Port.DiscardInBuffer();
 
-                OnSendToBuffer(new byte[] { 0x55 });
-                System.Threading.Thread.Sleep(500);
-
+                    OnSendToBuffer(new byte[] { 0x55 });
+                    System.Threading.Thread.Sleep(500);
+                }
             }
 
             base.OnBeginHandshake();
@@ -275,7 +269,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             base.CancelServiceExecution();
             try
             {
-                if (Port != null) Port.DiscardInBuffer();
+                Port?.DiscardInBuffer();
             }
             catch { }
             
@@ -298,56 +292,60 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
             Exception dataReceivedException = null;
 
             byte[] buffer = null;
-            
-            try
+            System.Threading.CancellationToken cancellationToken = cancellationTokenSource.Token;
+
+            if (!cancellationToken.IsCancellationRequested)
             {
-                if (Port.BytesToRead < 1)
-                    return;
-
-                // Obtain the number of bytes waiting in the port's buffer
-                int buffSize = Port.BytesToRead;
-
-                // Create a byte array buffer to hold the incoming data
-                buffer = new byte[buffSize];
-
-                // Read the data from the port and store it in our buffer
-                Port.Read(buffer, 0, buffSize);
-
-                OnRawDataReceived(buffer);
-            }
-            catch (Exception ex)
-            {
-                dataReceivedException = ex;
-            }
-
-            if (dataReceivedException == null)
-            {
-                if (buffer != null)
+                try
                 {
-                    dataLinkPacket.AddBytes(buffer);
-                    while (dataLinkPacket.GetRemainingLength() > 0)
-                    {
-                        dataLinkPacket.ProcessPacket();
-                        if (dataLinkPacket.PacketCompleted)
-                        {
-                            if (dataLinkPacket.Type == PacketType.Response)
-                            {
-                                byte[] rawPacket = dataLinkPacket.GetPacket();
+                    if (Port.BytesToRead < 1)
+                        return;
 
-                                OnDataReceived(rawPacket);
-                            }
-                            else
+                    // Obtain the number of bytes waiting in the port's buffer
+                    int buffSize = Port.BytesToRead;
+
+                    // Create a byte array buffer to hold the incoming data
+                    buffer = new byte[buffSize];
+
+                    // Read the data from the port and store it in our buffer
+                    Port.Read(buffer, 0, buffSize);
+
+                    OnRawDataReceived(buffer);
+                }
+                catch (Exception ex)
+                {
+                    dataReceivedException = ex;
+                }
+
+                if (dataReceivedException == null)
+                {
+                    if (buffer != null)
+                    {
+                        dataLinkPacket.AddBytes(buffer);
+                        while ((dataLinkPacket.GetRemainingLength() > 0) && !cancellationToken.IsCancellationRequested)
+                        {
+                            dataLinkPacket.ProcessPacket();
+                            if (dataLinkPacket.PacketCompleted)
                             {
-                                // ACK
-                                System.Diagnostics.Debug.WriteLine(string.Format("ACK received {0}", Phase));
+                                if (dataLinkPacket.Type == PacketType.Response)
+                                {
+                                    byte[] rawPacket = dataLinkPacket.GetPacket();
+
+                                    OnDataReceived(rawPacket);
+                                }
+                                else
+                                {
+                                    // ACK
+                                    System.Diagnostics.Debug.WriteLine(string.Format("ACK received {0}", Phase));
+                                }
                             }
                         }
                     }
                 }
-            }
-            else
-            {
-                StartCloseSession();
+                else
+                {
+                    StartCloseSession();
+                }
             }
         }
 

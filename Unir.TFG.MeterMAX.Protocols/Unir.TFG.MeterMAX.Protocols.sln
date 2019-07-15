@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unir.TFG.MeterMAX.Protocols.ANSI.C12_21", "Unir.TFG.MeterMAX.Protocols.ANSI.C12_21\Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.csproj", "{7E8A282A-7601-42B0-95EA-039081B7EFBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unir.TFG.MeterMAX.Protocols.ANSI.C12_21", "Unir.TFG.MeterMAX.Protocols.ANSI.C12_21\Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.csproj", "{7E8A282A-7601-42B0-95EA-039081B7EFBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unir.TFG.MeterMAX.Protocols.MaxProtocol", "Unir.TFG.MeterMAX.Protocols.MaxProtocol\Unir.TFG.MeterMAX.Protocols.MaxProtocol.csproj", "{04F6C086-31C9-4E85-A146-BE2FE6FB0D7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7E8A282A-7601-42B0-95EA-039081B7EFBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E8A282A-7601-42B0-95EA-039081B7EFBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E8A282A-7601-42B0-95EA-039081B7EFBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04F6C086-31C9-4E85-A146-BE2FE6FB0D7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04F6C086-31C9-4E85-A146-BE2FE6FB0D7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04F6C086-31C9-4E85-A146-BE2FE6FB0D7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04F6C086-31C9-4E85-A146-BE2FE6FB0D7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

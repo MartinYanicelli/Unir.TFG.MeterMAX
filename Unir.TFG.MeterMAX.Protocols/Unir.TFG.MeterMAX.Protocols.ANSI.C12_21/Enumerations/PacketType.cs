@@ -7,7 +7,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Enumerations
 {
     public enum PacketType
     {
-        ACK,
+        Ack,
         Response
     }
 }

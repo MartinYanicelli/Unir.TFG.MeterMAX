@@ -2,12 +2,11 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
-using Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Enumerations;
-using Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services.Enumerations;
+using Unir.TFG.MeterMAX.Protocols.MaxProtocol.Services.Enumerations;
 
-namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Packets
+namespace Unir.TFG.MeterMAX.Protocols.MaxProtocol.Packets
 {
-    public class RemoteDataLinkPacket
+    public class MaxDataLinkPacket
     {
         //<stp><identity><ctrl><seq-nbr><length><data><crc>
         private enum PACKET_STATE { 
@@ -35,11 +34,11 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Packets
         private Queue<byte> _recievedData;
         private Queue<byte> _packetData;
 
-        private readonly RemoteServiceType _serviceType;
-        private readonly RemoteServiceResponseFormat _serviceResponseFormat;
+        private readonly MaxServiceType _serviceType;
+        private readonly MaxServiceResponseFormat _serviceResponseFormat;
         
         #region Constructor
-        public RemoteDataLinkPacket(RemoteServiceType serviceType, RemoteServiceResponseFormat serviceResponseFormat)
+        public MaxDataLinkPacket(MaxServiceType serviceType, MaxServiceResponseFormat serviceResponseFormat)
         {
             _serviceType = serviceType;
             _serviceResponseFormat = serviceResponseFormat;
@@ -96,7 +95,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Packets
                         _packetState = PACKET_STATE.STAT;
                         break;
                     case PACKET_STATE.STAT:
-                        _packetState = (_serviceResponseFormat == RemoteServiceResponseFormat.ResponseWithData) ? PACKET_STATE.LEN : PACKET_STATE.CRCH;
+                        _packetState = (_serviceResponseFormat == MaxServiceResponseFormat.ResponseWithData) ? PACKET_STATE.LEN : PACKET_STATE.CRCH;
                         break;
                     case PACKET_STATE.LEN:
                         _dataSize = data;

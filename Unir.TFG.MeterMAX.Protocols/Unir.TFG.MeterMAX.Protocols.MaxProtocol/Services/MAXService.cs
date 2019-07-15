@@ -1,5 +1,5 @@
-﻿using Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Packets;
-using Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services.Enumerations;
+﻿using Unir.TFG.MeterMAX.Protocols.MaxProtocol.Packets;
+using Unir.TFG.MeterMAX.Protocols.MaxProtocol.Services.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -77,26 +77,26 @@ using System.Text;
  * bytes of the message packet by a 16 bit polynomial equation
  * 
  * **/
-namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services
+namespace Unir.TFG.MeterMAX.Protocols.MaxProtocol.Services
 {
-    public abstract class RemoteService
+    public abstract class MaxService
     {
-        protected RemoteServiceRequestCode serviceRequestCode;
-        protected RemoteServiceType serviceType;
-        protected RemotePacket requestPacket;
-        protected RemotePacket responsePacket;
+        protected MaxServiceRequestCode serviceRequestCode;
+        protected MaxServiceType serviceType;
+        protected MaxPacket requestPacket;
+        protected MaxPacket responsePacket;
 
-        public RemoteServiceResponseCode ResponseCode => (responsePacket != null) ? (RemoteServiceResponseCode)responsePacket.ACK : RemoteServiceResponseCode.Unknow;
+        public MaxServiceResponseCode ResponseCode => (responsePacket != null) ? (MaxServiceResponseCode)responsePacket.ACK : MaxServiceResponseCode.Unknow;
         public bool HasMorePackets { get; private set; }
         public bool IsFirstPacket { get; private set; }
         
         #region Constructor
-        public RemoteService()
+        public MaxService()
         {
 
         }
 
-        protected RemoteService(RemoteServiceType serviceType, RemoteServiceRequestCode requestCode)
+        protected MaxService(MaxServiceType serviceType, MaxServiceRequestCode requestCode)
         {
             this.serviceType = serviceType;
             serviceRequestCode = requestCode;
@@ -139,14 +139,14 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services
             }
         }
 
-        protected virtual RemotePacket OnCreatePacket()
+        protected virtual MaxPacket OnCreatePacket()
         {
-            return new RemotePacket() { STYPE = (byte)serviceType };
+            return new MaxPacket() { STYPE = (byte)serviceType };
         }
   
-        protected virtual RemotePacket OnCreateRequestPacket()
+        protected virtual MaxPacket OnCreateRequestPacket()
         {
-            RemotePacket packet = OnCreatePacket();
+            MaxPacket packet = OnCreatePacket();
             packet.SCODE = (byte)serviceRequestCode;
             packet.PAD = 0x00;
             OnFillRequestDataPacket(packet);
@@ -157,12 +157,12 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services
             return packet;
         }
 
-        protected virtual void OnFillRequestDataPacket(RemotePacket requestPacket)
+        protected virtual void OnFillRequestDataPacket(MaxPacket requestPacket)
         {
             
         }
 
-        protected virtual RemotePacket OnCreateResponsePacket(byte[] data)
+        protected virtual MaxPacket OnCreateResponsePacket(byte[] data)
         {
             /* Formato de respuesta:
              * Sin datos:
@@ -174,25 +174,25 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services
              * */
 
             if (data == null)
-                throw new ArgumentNullException("data", "El paquete de datos no puede ser nulo.");
+                throw new ArgumentNullException("data", "El paquete de datos MeterMAX no puede ser nulo.");
 
             if (data.Length < 6)
-                throw new ServiceException(ServiceExceptionType.PacketLenght, "El paquete de datos debe tener un longitud mínima de 6 bytes.");
+                throw new MaxServiceException(MaxServiceExceptionType.PacketLenght, "El paquete de datos MeterMAX debe tener un longitud mínima de 6 bytes.");
 
             // verificamos que el CRC sea correcto...
             if (!CheckCRC(data))
-                throw new ServiceException(ServiceExceptionType.PacketIntegrity, "Error en la integridad del paquete de datos. CRC Inválido.");
+                throw new MaxServiceException(MaxServiceExceptionType.PacketIntegrity, "Error en la integridad del paquete de datos MeterMAX. CRC Inválido.");
 
-            RemotePacket packet = OnCreatePacket();
+            MaxPacket packet = OnCreatePacket();
 
             if (data[0] != packet.STX)
-                throw new ServiceException(ServiceExceptionType.PacketIntegrity, $"Error en formato del paquete de datos. Cabecera inválida. {data[0]:X2}");
+                throw new MaxServiceException(MaxServiceExceptionType.PacketIntegrity, $"Error en formato del paquete de datos MeterMAX. Cabecera inválida. {data[0]:X2}");
 
-            if (!Enum.IsDefined(typeof(RemoteServiceType), data[1]))
-                throw new ServiceException(ServiceExceptionType.PacketIntegrity, $"Error en el formato del paquete de datos. Tipo de Servicio inválido. {data[1]:X2}");
+            if (!Enum.IsDefined(typeof(MaxServiceType), data[1]))
+                throw new MaxServiceException(MaxServiceExceptionType.PacketIntegrity, $"Error en el formato del paquete de datos MeterMax. Tipo de Servicio inválido. {data[1]:X2}");
 
-            if (!Enum.IsDefined(typeof(RemoteServiceResponseCode), data[2]))
-                throw new ServiceException(ServiceExceptionType.PacketIntegrity, $"Error en el formato del paquete de datos. Código de Respuesta inválido. {data[2]:X2}");
+            if (!Enum.IsDefined(typeof(MaxServiceResponseCode), data[2]))
+                throw new MaxServiceException(MaxServiceExceptionType.PacketIntegrity, $"Error en el formato del paquete de datos MeterMAX. Código de Respuesta inválido. {data[2]:X2}");
 
             packet.STYPE = data[1];
             packet.ACK = data[2];
@@ -207,7 +207,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services
             {
                 byte len = (byte) (7 + data[4]);
                 if (data.Length != len)
-                    throw new ServiceException(ServiceExceptionType.PacketLenght, $"Error en la longitud del paquete de datos. Longitud del paquete: {data.Length} - Longitud esperada: {len}");
+                    throw new MaxServiceException(MaxServiceExceptionType.PacketLenght, $"Error en la longitud del paquete de datos MeterMAX. Longitud del paquete: {data.Length} - Longitud esperada: {len}");
 
                 packet.LEN = len;
                 byte[] buffer = new byte[len];
@@ -222,7 +222,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services
 
         protected virtual byte[] OnComputeCRC(byte[] data)
         {
-            return RemoteCRCCalculator.ChecksumToArray(data);
+            return MaxCRCCalculator.ChecksumToArray(data);
         }
 
         protected virtual bool CheckCRC(byte[] data)
@@ -232,7 +232,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services
 
             var buffer = new byte[data.Length - 2];
             Buffer.BlockCopy(data, 0, buffer, 0, buffer.Length);
-            var crc = RemoteCRCCalculator.ChecksumToArray(buffer);
+            var crc = MaxCRCCalculator.ChecksumToArray(buffer);
 
             return (crcL == crc[1]) && (crcH == crc[0]);
         }
@@ -240,9 +240,9 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendFormat("ServiceType {0} ", this.GetType());
+            stringBuilder.AppendFormat("MaxServiceType {0} ", this.GetType());
             stringBuilder.AppendLine();
-            stringBuilder.Append("Request Packet: ");
+            stringBuilder.Append("Request MeterMAX Packet: ");
             if (requestPacket != null)
             {
                 stringBuilder.Append(requestPacket.ToString());
@@ -252,7 +252,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services
                 stringBuilder.AppendLine(" ---- ");
             }
 
-            stringBuilder.Append("Response Packet: ");
+            stringBuilder.Append("Response MeterMAX Packet: ");
             if (responsePacket != null)
             {
                 stringBuilder.Append(responsePacket.ToString());
@@ -272,7 +272,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services
 
         #region Private Methods
 
-        private byte[] ConvertRequestPacketToArray(RemotePacket packet)
+        private byte[] ConvertRequestPacketToArray(MaxPacket packet)
         {
             int packetSize = packet.LEN.HasValue ? (7 + packet.LEN.Value) : 6;
             List<byte> rawPacket = new List<byte>();

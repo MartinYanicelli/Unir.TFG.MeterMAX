@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Enumerations;
 using Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services;
 
@@ -22,9 +24,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
         event SessionTimeoutEventHandler SessionTimeout;
         event EventHandler SessionClosing;
         event SetMessageEventHandler SessionClosed;
-        //event EventHandler SessionStopping;
-        //event SetMessageEventHandler SessionStopped;
-
+       
         event ServiceExecutionEventHandler ServiceExecutionStarted;
         event ServiceExecutionEventHandler ServiceExecutionCompleted;
         event ServiceExecutionEventHandler ServiceExecutionError;
@@ -47,16 +47,12 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
         #endregion
 
         #region Methods
-        void Start();
-        void Start(System.Threading.CancellationToken cancellation);
-        void Start(IList<IService> services);
+        Task StartAsync();
+        Task StartAsync(IList<IService> services);
         void Pause();
         void Resume();
         void Stop();
-
-        void StartServicesExecution();
-        void StartServicesExecution(IList<IService> services);
-        void RestartServicesExecution();
+        Task RestartAsync();
         #endregion
     }
 }

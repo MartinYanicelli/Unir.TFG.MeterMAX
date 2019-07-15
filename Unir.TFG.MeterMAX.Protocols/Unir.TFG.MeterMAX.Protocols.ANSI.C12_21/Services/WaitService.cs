@@ -18,7 +18,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Services
         }
         #endregion
 
-        protected override void OnFillRequestDataPacket(Unir.TFG.MeterMAX.Protocols.ANSI.C12_21.Packets.Packet requestPacket)
+        protected override void OnFillRequestDataPacket(Packets.Packet requestPacket)
         {
             base.OnFillRequestDataPacket(requestPacket);
             requestPacket.DATA.Add(WaitTime);
