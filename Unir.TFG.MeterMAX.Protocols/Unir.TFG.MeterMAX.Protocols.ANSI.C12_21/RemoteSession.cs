@@ -24,7 +24,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
         private readonly int _startRemoteSessionAttempts;
 
         // flag para indicar si debemos utilizar el protocolo de comunicación propietario para el inicio de sesión remota.
-        private readonly bool _userMaxProtocol;
+        private readonly bool _useMeterMaxProtocol;
 
         protected override bool IsPortReady
         {
@@ -35,12 +35,12 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
         #endregion
 
         #region Constructor
-        public RemoteSession(string ip, int portNumber, int userId, string userName, string password, int? sendAckResponseThershold, int? startRemoteSessionAttempts, NegotiationSetting negotiationSetting = null, TimingSetting timingSetting = null,  bool useMaxProtocol = true)
+        public RemoteSession(string ip, int portNumber, int userId, string userName, string password, int? sendAckResponseThershold, int? startRemoteSessionAttempts, NegotiationSetting negotiationSetting = null, TimingSetting timingSetting = null,  bool useMeterMaxProtocol = true)
             : base(userId, userName, password, sendAckResponseThershold, null, negotiationSetting, timingSetting)
         {
             _endPoint = new IPEndPoint(IPAddress.Parse(ip), portNumber);
             _startRemoteSessionAttempts = startRemoteSessionAttempts ?? DefaultStartRemoteSessionAttempts;
-            _userMaxProtocol = useMaxProtocol;
+            _useMeterMaxProtocol = useMeterMaxProtocol;
         }
 
         #endregion
@@ -172,7 +172,7 @@ namespace Unir.TFG.MeterMAX.Protocols.ANSI.C12_21
         protected override void OnSessionStart()
         {
             CancellationToken cancellationToken = cancellationTokenSource.Token;
-            if (_userMaxProtocol)
+            if (_useMeterMaxProtocol)
             {
                 var maxServiceResponseCode = MaxServiceResponseCode.Unknow;
 

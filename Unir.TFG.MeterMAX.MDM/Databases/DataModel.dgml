@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Addresses" Category="Table" Bounds="671.33,480,93.88,25" Group="Collapsed" Label="Addresses" />
+    <Node Id="Addresses_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="Addresses_PostalCodeId" Category="Field Foreign" Description="int" Label="PostalCodeId" />
+    <Node Id="Addresses_StreetId" Category="Field" Description="int" Label="StreetId" />
+    <Node Id="Cities" Category="Table" Bounds="804.336398259187,551.207390203078,68.6800000000001,25" Group="Collapsed" Label="Cities" UseManualLocation="True" />
+    <Node Id="Cities_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="Cities_Name" Category="Field" Description="nvarchar(255)" Label="Name" />
+    <Node Id="Cities_StateId" Category="Field Foreign" Description="int" Label="StateId" />
+    <Node Id="CommunicationChannelSettings" Category="Table" Bounds="892.129330606129,414.740804951845,209.793333333334,25" Group="Collapsed" Label="CommunicationChannelSettings" UseManualLocation="True" />
+    <Node Id="CommunicationChannelSettings_BaudRate" Category="Field" Description="int" Label="BaudRate" />
+    <Node Id="CommunicationChannelSettings_ChannelTrafficTimeout" Category="Field" Description="tinyint" Label="ChannelTrafficTimeout" />
+    <Node Id="CommunicationChannelSettings_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="CommunicationChannelSettings_InterCharacterTimeout" Category="Field" Description="tinyint" Label="InterCharacterTimeout" />
+    <Node Id="CommunicationChannelSettings_NumberOfPackets" Category="Field" Description="tinyint" Label="NumberOfPackets" />
+    <Node Id="CommunicationChannelSettings_NumberOfRetries" Category="Field" Description="tinyint" Label="NumberOfRetries" />
+    <Node Id="CommunicationChannelSettings_PacketSize" Category="Field" Description="tinyint" Label="PacketSize" />
+    <Node Id="CommunicationChannelSettings_ResponseTimeout" Category="Field" Description="tinyint" Label="ResponseTimeout" />
+    <Node Id="CommunicationChannelSettings_SendAckResponseThershold" Category="Field Optional" Description="int" Label="SendAckResponseThershold" />
+    <Node Id="Countries" Category="Table" Bounds="1013.90134848485,550.673104509668,90.5566666666673,25" Group="Collapsed" Label="Countries" UseManualLocation="True" />
+    <Node Id="Countries_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="Countries_Name" Category="Field" Description="nvarchar(255)" Label="Name" />
+    <Node Id="Customers" Category="Table" Bounds="353.977663939462,480,96.29,25" Group="Collapsed" Label="Customers" />
+    <Node Id="Customers_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="Customers_IdentificationNumber" Category="Field" Description="nvarchar(100)" Label="IdentificationNumber" />
+    <Node Id="Customers_Name" Category="Field" Description="nvarchar(255)" Label="Name" />
+    <Node Id="DataSetComponents" Category="Table" Bounds="1223.61666666667,139.697200612742,149.306666666666,25" Group="Collapsed" Label="DataSetComponents" />
+    <Node Id="DataSetComponents_DataSetId" Category="Field Foreign" Description="int" Label="DataSetId" />
+    <Node Id="DataSetComponents_Description" Category="Field Optional" Description="nvarchar(255)" Label="Description" />
+    <Node Id="DataSetComponents_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="DataSetComponents_Name" Category="Field" Description="nvarchar(100)" Label="Name" />
+    <Node Id="DataSets" Category="Table" Bounds="1255.01833333333,194.697300612742,86.5033333333331,25" Group="Collapsed" Label="DataSets" />
+    <Node Id="DataSets_Description" Category="Field Optional" Description="nvarchar(255)" Label="Description" />
+    <Node Id="DataSets_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="DataSets_Name" Category="Field" Description="nvarchar(100)" Label="Name" />
+    <Node Id="Database" Category="Database" Bounds="178.367663939462,44.6970006127419,1309.6640027272,551.510489590336" Group="Expanded" Label="MeterMAX.Storage.db" />
+    <Node Id="EnergySupplies" Category="Table" Bounds="200.804330606129,424.999966666667,120.636666666667,25" Group="Collapsed" Label="EnergySupplies" />
+    <Node Id="EnergySupplies_AddressId" Category="Field Foreign" Description="int" Label="AddressId" />
+    <Node Id="EnergySupplies_Code" Category="Field" Description="nvarchar(100)" Label="Code" />
+    <Node Id="EnergySupplies_CustomerId" Category="Field Foreign" Description="int" Label="CustomerId" />
+    <Node Id="EnergySupplies_GeoCoordinateId" Category="Field Foreign" Description="int" Label="GeoCoordinateId" />
+    <Node Id="EnergySupplies_GroupId" Category="Field Foreign" Description="int" Label="GroupId" />
+    <Node Id="EnergySupplies_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="EnergySupplyGroups" Category="Table" Bounds="201.741981556066,358.809431661053,150.54,25" Group="Collapsed" Label="EnergySupplyGroups" UseManualLocation="True" />
+    <Node Id="EnergySupplyGroups_Description" Category="Field Optional" Description="nvarchar(255)" Label="Description" />
+    <Node Id="EnergySupplyGroups_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="EnergySupplyGroups_Name" Category="Field" Description="nvarchar(255)" Label="Name" />
+    <Node Id="GeoCoordinates" Category="Table" Bounds="198.367663939462,480.000066666667,125.51,25" Group="Collapsed" Label="GeoCoordinates" />
+    <Node Id="GeoCoordinates_Altitude" Category="Field Optional" Description="float" Label="Altitude" />
+    <Node Id="GeoCoordinates_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="GeoCoordinates_Latitude" Category="Field" Description="float" Label="Latitude" />
+    <Node Id="GeoCoordinates_Longitude" Category="Field" Description="float" Label="Longitude" />
+    <Node Id="InsituMeterSessionSettings" Category="Table" Bounds="1238.9422561805,249.740504951845,182.613333333333,25" Group="Collapsed" Label="InsituMeterSessionSettings" UseManualLocation="True" />
+    <Node Id="InsituMeterSessionSettings_DtrEnabled" Category="Field Optional" Description="bit" Label="DtrEnabled" />
+    <Node Id="InsituMeterSessionSettings_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="InsituMeterSessionSettings_MeterSessionSettingId" Category="Field Foreign" Description="int" Label="MeterSessionSettingId" />
+    <Node Id="InsituMeterSessionSettings_PortName" Category="Field" Description="nvarchar(20)" Label="PortName" />
+    <Node Id="MeterManufacturers" Category="Table" Bounds="714.115997272795,370,148.013333333333,25" Group="Collapsed" Label="MeterManufacturers" />
+    <Node Id="MeterManufacturers_AddressId" Category="Field Foreign" Description="int" Label="AddressId" />
+    <Node Id="MeterManufacturers_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="MeterManufacturers_Name" Category="Field" Description="nvarchar(255)" Label="Name" />
+    <Node Id="MeterProtocolSettings" Category="Table" Bounds="808.915,315,158.71,25" Group="Collapsed" Label="MeterProtocolSettings" />
+    <Node Id="MeterProtocolSettings_Id" Category="Field Primary" Description="int" Label="Id" />
+    <Node Id="MeterProtocolSettings_Password" Category="Field" Description="nvarchar(100)" Label="Password" />
+    <Node Id="MeterProtocolSettings_UserId" Category="Field" Description="int" Label="UserId" />
+    <Node Id="MeterProtocolSettings_UserName" Category="Field" Description="nvarchar(100)" Label="UserName" />
+    <Node Id="MeterSession" Category="Table" Bounds="717.703333333333,205,111.133333333333,25" Group="Collapsed" Label="MeterSession" />
+    <Node Id="MeterSessionItemTasks" Category="Table" Bounds="1013.19347840103,88.8655791427225,162.203333333333,25" Group="Collapsed" Label="MeterSessionItemTasks" UseManualLocation="True" />
+    <Node Id="MeterSessionItemTasks_EndDate" Category="Field" Description="datetime" Label="EndDate" />
+    <Node Id="MeterSessionItemTasks_Error" Category="Field Optional" Description="nvarchar(255)" Label="Error" />
+    <Node Id="MeterSessionItemTasks_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="MeterSessionItemTasks_Name" Category="Field" Description="nvarchar(255)" Label="Name" />
+    <Node Id="MeterSessionItemTasks_SessionTaskId" Category="Field Foreign" Description="int" Label="SessionTaskId" />
+    <Node Id="MeterSessionItemTasks_StartDate" Category="Field" Description="datetime" Label="StartDate" />
+    <Node Id="MeterSessionItemTasks_Success" Category="Field Optional" Description="bit" Label="Success" />
+    <Node Id="MeterSessionItemTasks_TaskResult" Category="Field Optional" Description="image" Label="TaskResult" />
+    <Node Id="MeterSessionReconnectionSchemas" Category="Table" Bounds="1238.50833333333,304.740604951845,229.523333333334,25" Group="Collapsed" Label="MeterSessionReconnectionSchemas" />
+    <Node Id="MeterSessionReconnectionSchemas_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="MeterSessionReconnectionSchemas_MaxReconnectionAttempts" Category="Field" Description="int" Label="MaxReconnectionAttempts" />
+    <Node Id="MeterSessionSettings" Category="Table" Bounds="940.383333333333,260,153.773333333333,25" Group="Collapsed" Label="MeterSessionSettings" />
+    <Node Id="MeterSessionSettings_AckResponseThershold" Category="Field Optional" Description="int" Label="AckResponseThershold" />
+    <Node Id="MeterSessionSettings_CommunicationChannelSettingId" Category="Field Foreign" Description="int" Label="CommunicationChannelSettingId" />
+    <Node Id="MeterSessionSettings_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="MeterSessionSettings_InternalReconnectionAttempts" Category="Field Optional" Description="int" Label="InternalReconnectionAttempts" />
+    <Node Id="MeterSessionSettings_Name" Category="Field" Description="nvarchar(100)" Label="Name" />
+    <Node Id="MeterSessionSettings_ProtocolSettingId" Category="Field Foreign" Description="int" Label="ProtocolSettingId" />
+    <Node Id="MeterSessionSettings_ReconnectionSchemaId" Category="Field Foreign" Description="int" Label="ReconnectionSchemaId" />
+    <Node Id="MeterSessionStatuses" Category="Table" Bounds="754.963333333333,260,154.613333333333,25" Group="Collapsed" Label="MeterSessionStatuses" />
+    <Node Id="MeterSessionStatuses_Description" Category="Field Optional" Description="nvarchar(255)" Label="Description" />
+    <Node Id="MeterSessionStatuses_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="MeterSessionStatuses_Name" Category="Field" Description="nvarchar(100)" Label="Name" />
+    <Node Id="MeterSessionTasks" Category="Table" Bounds="1229.105,84.6971006127419,138.33,25" Group="Collapsed" Label="MeterSessionTasks" />
+    <Node Id="MeterSessionTasks_Completed" Category="Field Optional" Description="bit" Label="Completed" />
+    <Node Id="MeterSessionTasks_DataSetComponentId" Category="Field Foreign" Description="int" Label="DataSetComponentId" />
+    <Node Id="MeterSessionTasks_EndDate" Category="Field" Description="datetime" Label="EndDate" />
+    <Node Id="MeterSessionTasks_Error" Category="Field Optional" Description="nvarchar(255)" Label="Error" />
+    <Node Id="MeterSessionTasks_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="MeterSessionTasks_Name" Category="Field" Description="nvarchar(100)" Label="Name" />
+    <Node Id="MeterSessionTasks_StartDate" Category="Field" Description="datetime" Label="StartDate" />
+    <Node Id="MeterSessionTypes" Category="Table" Bounds="1083.775,194.697300612742,140.99,25" Group="Collapsed" Label="MeterSessionTypes" />
+    <Node Id="MeterSessionTypes_Description" Category="Field Optional" Description="nvarchar(255)" Label="Description" />
+    <Node Id="MeterSessionTypes_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="MeterSessionTypes_Name" Category="Field" Description="nvarchar(100)" Label="Name" />
+    <Node Id="MeterSession_EndDate" Category="Field" Description="datetime" Label="EndDate" />
+    <Node Id="MeterSession_Guid" Category="Field" Description="nvarchar(100)" Label="Guid" />
+    <Node Id="MeterSession_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="MeterSession_MeterId" Category="Field Foreign" Description="int" Label="MeterId" />
+    <Node Id="MeterSession_SessionSettingId" Category="Field Foreign" Description="int" Label="SessionSettingId" />
+    <Node Id="MeterSession_SessionStatusId" Category="Field Foreign" Description="int" Label="SessionStatusId" />
+    <Node Id="MeterSession_SessionTrace" Category="Field Optional" Description="ntext" Label="SessionTrace" />
+    <Node Id="MeterSession_StartDate" Category="Field" Description="datetime" Label="StartDate" />
+    <Node Id="Meters" Category="Table" Bounds="647.938333333333,260,76.6633333333333,25" Group="Collapsed" Label="Meters" />
+    <Node Id="Meters_EnergySupplyId" Category="Field Foreign" Description="int" Label="EnergySupplyId" />
+    <Node Id="Meters_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="Meters_MeterManufacturerId" Category="Field Foreign" Description="int" Label="MeterManufacturerId" />
+    <Node Id="Meters_Model" Category="Field" Description="nvarchar(150)" Label="Model" />
+    <Node Id="Meters_RemoteDeviceId" Category="Field Foreign" Description="int" Label="RemoteDeviceId" />
+    <Node Id="Meters_SerialNumber" Category="Field" Description="bigint" Label="SerialNumber" />
+    <Node Id="OnDemandMeterSessions" Category="Table" Bounds="597.743333333333,150,177.053333333333,25" Group="Collapsed" Label="OnDemandMeterSessions" />
+    <Node Id="OnDemandMeterSessions_DataSetId" Category="Field Foreign" Description="int" Label="DataSetId" />
+    <Node Id="OnDemandMeterSessions_Guid" Category="Field" Description="nvarchar(100)" Label="Guid" />
+    <Node Id="OnDemandMeterSessions_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="OnDemandMeterSessions_MeterId" Category="Field Foreign" Description="int" Label="MeterId" />
+    <Node Id="OnDemandMeterSessions_MeterSessionId" Category="Field Foreign" Description="int" Label="MeterSessionId" />
+    <Node Id="OnDemandMeterSessions_SessionTypeId" Category="Field Foreign" Description="int" Label="SessionTypeId" />
+    <Node Id="OnDemandMeterSessions_UserSessionId" Category="Field Foreign" Description="int" Label="UserSessionId" />
+    <Node Id="PhoneCompanies" Category="Table" Bounds="510.807663939462,425,132.63,25" Group="Collapsed" Label="PhoneCompanies" />
+    <Node Id="PhoneCompanies_AddressId" Category="Field Foreign" Description="int" Label="AddressId" />
+    <Node Id="PhoneCompanies_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="PhoneCompanies_Name" Category="Field" Description="nvarchar(255)" Label="Name" />
+    <Node Id="PostalCodes" Category="Table" Bounds="666.081666666667,535,104.376666666667,25" Group="Collapsed" Label="PostalCodes" />
+    <Node Id="PostalCodes_CityId" Category="Field Foreign" Description="int" Label="CityId" />
+    <Node Id="PostalCodes_Code" Category="Field" Description="nvarchar(100)" Label="Code" />
+    <Node Id="PostalCodes_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="ReconnectionSchedules" Category="Table" Bounds="1281.49947316006,371.265657853575,164.986666666667,25" Group="Collapsed" Label="ReconnectionSchedules" UseManualLocation="True" />
+    <Node Id="ReconnectionSchedules_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="ReconnectionSchedules_MeterSessionReconnectionSchemaId" Category="Field Foreign" Description="int" Label="MeterSessionReconnectionSchemaId" />
+    <Node Id="ReconnectionSchedules_Schedule" Category="Field" Description="bigint" Label="Schedule" />
+    <Node Id="RemoteDevices" Category="Table" Bounds="625.735,315,121.07,25" Group="Collapsed" Label="RemoteDevices" />
+    <Node Id="RemoteDevices_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="RemoteDevices_Model" Category="Field" Description="nvarchar(255)" Label="Model" />
+    <Node Id="RemoteDevices_SIMCardId" Category="Field Foreign" Description="int" Label="SIMCardId" />
+    <Node Id="RemoteDevices_SerialNumber" Category="Field" Description="nvarchar(255)" Label="SerialNumber" />
+    <Node Id="RemoteDevices_VendorId" Category="Field Foreign" Description="int" Label="VendorId" />
+    <Node Id="RemoteMeterSessionSettings" Category="Table" Bounds="1039.01381419248,359.740704951845,194.586666666667,25" Group="Collapsed" Label="RemoteMeterSessionSettings" UseManualLocation="True" />
+    <Node Id="RemoteMeterSessionSettings_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="RemoteMeterSessionSettings_MeterSessionSettingId" Category="Field Foreign" Description="int" Label="MeterSessionSettingId" />
+    <Node Id="RemoteMeterSessionSettings_UseMeterMAXProtocol" Category="Field" Description="bit" Label="UseMeterMAXProtocol" />
+    <Node Id="Roles" Category="Table" Bounds="432.055997272796,315,68.1333333333333,25" Group="Collapsed" Label="Roles" />
+    <Node Id="Roles_Description" Category="Field Optional" Description="nvarchar(255)" Label="Description" />
+    <Node Id="Roles_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="Roles_Name" Category="Field" Description="nvarchar(100)" Label="Name" />
+    <Node Id="SIMCardServices" Category="Table" Bounds="352.367663939462,425,127.51,25" Group="Collapsed" Label="SIMCardServices" />
+    <Node Id="SIMCardServices_Description" Category="Field Optional" Description="nvarchar(255)" Label="Description" />
+    <Node Id="SIMCardServices_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="SIMCardServices_Name" Category="Field" Description="nvarchar(100)" Label="Name" />
+    <Node Id="SIMCards" Category="Table" Bounds="562.015997272795,370,90.2133333333334,25" Group="Collapsed" Label="SIMCards" />
+    <Node Id="SIMCards_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="SIMCards_PhoneCompanyId" Category="Field Foreign" Description="int" Label="PhoneCompanyId" />
+    <Node Id="SIMCards_PhoneNumber" Category="Field" Description="nvarchar(100)" Label="PhoneNumber" />
+    <Node Id="SIMCards_SerialNumber" Category="Field" Description="nvarchar(255)" Label="SerialNumber" />
+    <Node Id="SIMCards_ServiceId" Category="Field Foreign" Description="int" Label="ServiceId" />
+    <Node Id="States" Category="Table" Bounds="910.228347711154,551.081569313329,71.5966666666668,25" Group="Collapsed" Label="States" UseManualLocation="True" />
+    <Node Id="States_CountryId" Category="Field Foreign" Description="int" Label="CountryId" />
+    <Node Id="States_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="States_Name" Category="Field" Description="nvarchar(255)" Label="Name" />
+    <Node Id="Streets" Category="Table" Bounds="559.3,535,75.9399999999999,25" Group="Collapsed" Label="Streets" />
+    <Node Id="Streets_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="UserSessions" Category="Table" Bounds="547.048333333333,205,108.443333333333,25" Group="Collapsed" Label="UserSessions" />
+    <Node Id="UserSessions_EndDate" Category="Field Optional" Description="datetime" Label="EndDate" />
+    <Node Id="UserSessions_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="UserSessions_StartDate" Category="Field" Description="datetime" Label="StartDate" />
+    <Node Id="UserSessions_UserId" Category="Field Foreign" Description="int" Label="UserId" />
+    <Node Id="Users" Category="Table" Bounds="548.83,260,68.88,25" Group="Collapsed" Label="Users" />
+    <Node Id="Users_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="Users_Identification" Category="Field" Description="nvarchar(50)" Label="Identification" />
+    <Node Id="Users_Password" Category="Field" Description="nvarchar(20)" Label="Password" />
+    <Node Id="Users_RoleId" Category="Field Foreign" Description="int" Label="RoleId" />
+    <Node Id="Users_UserName" Category="Field" Description="nvarchar(50)" Label="UserName" />
+    <Node Id="Vendors" Category="Table" Bounds="676.71,425,83.12,25" Group="Collapsed" Label="Vendors" />
+    <Node Id="Vendors_AddressId" Category="Field Foreign" Description="int" Label="AddressId" />
+    <Node Id="Vendors_Description" Category="Field Optional" Description="nvarchar(255)" Label="Description" />
+    <Node Id="Vendors_Id" Category="Field Primary" Description="bigint" Label="Id" />
+    <Node Id="Vendors_Name" Category="Field" Description="nvarchar(255)" Label="Name" />
+  </Nodes>
+  <Links>
+    <Link Source="Addresses" Target="Addresses_Id" Category="Contains" />
+    <Link Source="Addresses" Target="Addresses_PostalCodeId" Category="Contains" />
+    <Link Source="Addresses" Target="Addresses_StreetId" Category="Contains" />
+    <Link Source="Addresses_PostalCodeId" Target="PostalCodes_Id" Category="Foreign Key" Label="FK_Addresses_1_0" />
+    <Link Source="Addresses_PostalCodeId" Target="Streets_Id" Category="Foreign Key" Label="FK_Addresses_0_0" />
+    <Link Source="Cities" Target="Cities_Id" Category="Contains" />
+    <Link Source="Cities" Target="Cities_Name" Category="Contains" />
+    <Link Source="Cities" Target="Cities_StateId" Category="Contains" />
+    <Link Source="Cities_StateId" Target="States_Id" Category="Foreign Key" Label="FK_Cities_0_0" />
+    <Link Source="CommunicationChannelSettings" Target="CommunicationChannelSettings_BaudRate" Category="Contains" />
+    <Link Source="CommunicationChannelSettings" Target="CommunicationChannelSettings_ChannelTrafficTimeout" Category="Contains" />
+    <Link Source="CommunicationChannelSettings" Target="CommunicationChannelSettings_Id" Category="Contains" />
+    <Link Source="CommunicationChannelSettings" Target="CommunicationChannelSettings_InterCharacterTimeout" Category="Contains" />
+    <Link Source="CommunicationChannelSettings" Target="CommunicationChannelSettings_NumberOfPackets" Category="Contains" />
+    <Link Source="CommunicationChannelSettings" Target="CommunicationChannelSettings_NumberOfRetries" Category="Contains" />
+    <Link Source="CommunicationChannelSettings" Target="CommunicationChannelSettings_PacketSize" Category="Contains" />
+    <Link Source="CommunicationChannelSettings" Target="CommunicationChannelSettings_ResponseTimeout" Category="Contains" />
+    <Link Source="CommunicationChannelSettings" Target="CommunicationChannelSettings_SendAckResponseThershold" Category="Contains" />
+    <Link Source="Countries" Target="Countries_Id" Category="Contains" />
+    <Link Source="Countries" Target="Countries_Name" Category="Contains" />
+    <Link Source="Customers" Target="Customers_Id" Category="Contains" />
+    <Link Source="Customers" Target="Customers_IdentificationNumber" Category="Contains" />
+    <Link Source="Customers" Target="Customers_Name" Category="Contains" />
+    <Link Source="DataSetComponents" Target="DataSetComponents_DataSetId" Category="Contains" />
+    <Link Source="DataSetComponents" Target="DataSetComponents_Description" Category="Contains" />
+    <Link Source="DataSetComponents" Target="DataSetComponents_Id" Category="Contains" />
+    <Link Source="DataSetComponents" Target="DataSetComponents_Name" Category="Contains" />
+    <Link Source="DataSetComponents_DataSetId" Target="DataSets_Id" Category="Foreign Key" Label="FK_DataSetComponents_0_0" />
+    <Link Source="DataSets" Target="DataSets_Description" Category="Contains" />
+    <Link Source="DataSets" Target="DataSets_Id" Category="Contains" />
+    <Link Source="DataSets" Target="DataSets_Name" Category="Contains" />
+    <Link Source="Database" Target="Addresses" Category="Contains" />
+    <Link Source="Database" Target="Cities" Category="Contains" />
+    <Link Source="Database" Target="CommunicationChannelSettings" Category="Contains" />
+    <Link Source="Database" Target="Countries" Category="Contains" />
+    <Link Source="Database" Target="Customers" Category="Contains" />
+    <Link Source="Database" Target="DataSetComponents" Category="Contains" />
+    <Link Source="Database" Target="DataSets" Category="Contains" />
+    <Link Source="Database" Target="EnergySupplies" Category="Contains" />
+    <Link Source="Database" Target="EnergySupplyGroups" Category="Contains" />
+    <Link Source="Database" Target="GeoCoordinates" Category="Contains" />
+    <Link Source="Database" Target="InsituMeterSessionSettings" Category="Contains" />
+    <Link Source="Database" Target="MeterManufacturers" Category="Contains" />
+    <Link Source="Database" Target="MeterProtocolSettings" Category="Contains" />
+    <Link Source="Database" Target="MeterSession" Category="Contains" />
+    <Link Source="Database" Target="MeterSessionItemTasks" Category="Contains" />
+    <Link Source="Database" Target="MeterSessionReconnectionSchemas" Category="Contains" />
+    <Link Source="Database" Target="MeterSessionSettings" Category="Contains" />
+    <Link Source="Database" Target="MeterSessionStatuses" Category="Contains" />
+    <Link Source="Database" Target="MeterSessionTasks" Category="Contains" />
+    <Link Source="Database" Target="MeterSessionTypes" Category="Contains" />
+    <Link Source="Database" Target="Meters" Category="Contains" />
+    <Link Source="Database" Target="OnDemandMeterSessions" Category="Contains" />
+    <Link Source="Database" Target="PhoneCompanies" Category="Contains" />
+    <Link Source="Database" Target="PostalCodes" Category="Contains" />
+    <Link Source="Database" Target="ReconnectionSchedules" Category="Contains" />
+    <Link Source="Database" Target="RemoteDevices" Category="Contains" />
+    <Link Source="Database" Target="RemoteMeterSessionSettings" Category="Contains" />
+    <Link Source="Database" Target="Roles" Category="Contains" />
+    <Link Source="Database" Target="SIMCardServices" Category="Contains" />
+    <Link Source="Database" Target="SIMCards" Category="Contains" />
+    <Link Source="Database" Target="States" Category="Contains" />
+    <Link Source="Database" Target="Streets" Category="Contains" />
+    <Link Source="Database" Target="UserSessions" Category="Contains" />
+    <Link Source="Database" Target="Users" Category="Contains" />
+    <Link Source="Database" Target="Vendors" Category="Contains" />
+    <Link Source="EnergySupplies" Target="EnergySupplies_AddressId" Category="Contains" />
+    <Link Source="EnergySupplies" Target="EnergySupplies_Code" Category="Contains" />
+    <Link Source="EnergySupplies" Target="EnergySupplies_CustomerId" Category="Contains" />
+    <Link Source="EnergySupplies" Target="EnergySupplies_GeoCoordinateId" Category="Contains" />
+    <Link Source="EnergySupplies" Target="EnergySupplies_GroupId" Category="Contains" />
+    <Link Source="EnergySupplies" Target="EnergySupplies_Id" Category="Contains" />
+    <Link Source="EnergySupplies_AddressId" Target="Addresses_Id" Category="Foreign Key" Label="FK_EnergySupplies_3_0" />
+    <Link Source="EnergySupplies_CustomerId" Target="Customers_Id" Category="Foreign Key" Label="FK_EnergySupplies_2_0" />
+    <Link Source="EnergySupplies_GeoCoordinateId" Target="GeoCoordinates_Id" Category="Foreign Key" Label="FK_EnergySupplies_0_0" />
+    <Link Source="EnergySupplies_GroupId" Target="EnergySupplyGroups_Id" Category="Foreign Key" Label="FK_EnergySupplies_1_0" />
+    <Link Source="EnergySupplyGroups" Target="EnergySupplyGroups_Description" Category="Contains" />
+    <Link Source="EnergySupplyGroups" Target="EnergySupplyGroups_Id" Category="Contains" />
+    <Link Source="EnergySupplyGroups" Target="EnergySupplyGroups_Name" Category="Contains" />
+    <Link Source="GeoCoordinates" Target="GeoCoordinates_Altitude" Category="Contains" />
+    <Link Source="GeoCoordinates" Target="GeoCoordinates_Id" Category="Contains" />
+    <Link Source="GeoCoordinates" Target="GeoCoordinates_Latitude" Category="Contains" />
+    <Link Source="GeoCoordinates" Target="GeoCoordinates_Longitude" Category="Contains" />
+    <Link Source="InsituMeterSessionSettings" Target="InsituMeterSessionSettings_DtrEnabled" Category="Contains" />
+    <Link Source="InsituMeterSessionSettings" Target="InsituMeterSessionSettings_Id" Category="Contains" />
+    <Link Source="InsituMeterSessionSettings" Target="InsituMeterSessionSettings_MeterSessionSettingId" Category="Contains" />
+    <Link Source="InsituMeterSessionSettings" Target="InsituMeterSessionSettings_PortName" Category="Contains" />
+    <Link Source="InsituMeterSessionSettings_MeterSessionSettingId" Target="MeterSessionSettings_Id" Category="Foreign Key" Label="FK_InsituMeterSessionSettings_0_0" />
+    <Link Source="MeterManufacturers" Target="MeterManufacturers_AddressId" Category="Contains" />
+    <Link Source="MeterManufacturers" Target="MeterManufacturers_Id" Category="Contains" />
+    <Link Source="MeterManufacturers" Target="MeterManufacturers_Name" Category="Contains" />
+    <Link Source="MeterManufacturers_AddressId" Target="Addresses_Id" Category="Foreign Key" Label="FK_MeterManufacturers_0_0" />
+    <Link Source="MeterProtocolSettings" Target="MeterProtocolSettings_Id" Category="Contains" />
+    <Link Source="MeterProtocolSettings" Target="MeterProtocolSettings_Password" Category="Contains" />
+    <Link Source="MeterProtocolSettings" Target="MeterProtocolSettings_UserId" Category="Contains" />
+    <Link Source="MeterProtocolSettings" Target="MeterProtocolSettings_UserName" Category="Contains" />
+    <Link Source="MeterSession" Target="MeterSession_EndDate" Category="Contains" />
+    <Link Source="MeterSession" Target="MeterSession_Guid" Category="Contains" />
+    <Link Source="MeterSession" Target="MeterSession_Id" Category="Contains" />
+    <Link Source="MeterSession" Target="MeterSession_MeterId" Category="Contains" />
+    <Link Source="MeterSession" Target="MeterSession_SessionSettingId" Category="Contains" />
+    <Link Source="MeterSession" Target="MeterSession_SessionStatusId" Category="Contains" />
+    <Link Source="MeterSession" Target="MeterSession_SessionTrace" Category="Contains" />
+    <Link Source="MeterSession" Target="MeterSession_StartDate" Category="Contains" />
+    <Link Source="MeterSessionItemTasks" Target="MeterSessionItemTasks_EndDate" Category="Contains" />
+    <Link Source="MeterSessionItemTasks" Target="MeterSessionItemTasks_Error" Category="Contains" />
+    <Link Source="MeterSessionItemTasks" Target="MeterSessionItemTasks_Id" Category="Contains" />
+    <Link Source="MeterSessionItemTasks" Target="MeterSessionItemTasks_Name" Category="Contains" />
+    <Link Source="MeterSessionItemTasks" Target="MeterSessionItemTasks_SessionTaskId" Category="Contains" />
+    <Link Source="MeterSessionItemTasks" Target="MeterSessionItemTasks_StartDate" Category="Contains" />
+    <Link Source="MeterSessionItemTasks" Target="MeterSessionItemTasks_Success" Category="Contains" />
+    <Link Source="MeterSessionItemTasks" Target="MeterSessionItemTasks_TaskResult" Category="Contains" />
+    <Link Source="MeterSessionItemTasks_SessionTaskId" Target="MeterSessionTasks_Id" Category="Foreign Key" Label="FK_MeterSessionItemTasks_0_0" />
+    <Link Source="MeterSessionReconnectionSchemas" Target="MeterSessionReconnectionSchemas_Id" Category="Contains" />
+    <Link Source="MeterSessionReconnectionSchemas" Target="MeterSessionReconnectionSchemas_MaxReconnectionAttempts" Category="Contains" />
+    <Link Source="MeterSessionSettings" Target="MeterSessionSettings_AckResponseThershold" Category="Contains" />
+    <Link Source="MeterSessionSettings" Target="MeterSessionSettings_CommunicationChannelSettingId" Category="Contains" />
+    <Link Source="MeterSessionSettings" Target="MeterSessionSettings_Id" Category="Contains" />
+    <Link Source="MeterSessionSettings" Target="MeterSessionSettings_InternalReconnectionAttempts" Category="Contains" />
+    <Link Source="MeterSessionSettings" Target="MeterSessionSettings_Name" Category="Contains" />
+    <Link Source="MeterSessionSettings" Target="MeterSessionSettings_ProtocolSettingId" Category="Contains" />
+    <Link Source="MeterSessionSettings" Target="MeterSessionSettings_ReconnectionSchemaId" Category="Contains" />
+    <Link Source="MeterSessionSettings_CommunicationChannelSettingId" Target="CommunicationChannelSettings_Id" Category="Foreign Key" Label="FK_MeterSessionSettings_2_0" />
+    <Link Source="MeterSessionSettings_ProtocolSettingId" Target="MeterProtocolSettings_Id" Category="Foreign Key" Label="FK_MeterSessionSettings_1_0" />
+    <Link Source="MeterSessionSettings_ReconnectionSchemaId" Target="MeterSessionReconnectionSchemas_Id" Category="Foreign Key" Label="FK_MeterSessionSettings_0_0" />
+    <Link Source="MeterSessionStatuses" Target="MeterSessionStatuses_Description" Category="Contains" />
+    <Link Source="MeterSessionStatuses" Target="MeterSessionStatuses_Id" Category="Contains" />
+    <Link Source="MeterSessionStatuses" Target="MeterSessionStatuses_Name" Category="Contains" />
+    <Link Source="MeterSessionTasks" Target="MeterSessionTasks_Completed" Category="Contains" />
+    <Link Source="MeterSessionTasks" Target="MeterSessionTasks_DataSetComponentId" Category="Contains" />
+    <Link Source="MeterSessionTasks" Target="MeterSessionTasks_EndDate" Category="Contains" />
+    <Link Source="MeterSessionTasks" Target="MeterSessionTasks_Error" Category="Contains" />
+    <Link Source="MeterSessionTasks" Target="MeterSessionTasks_Id" Category="Contains" />
+    <Link Source="MeterSessionTasks" Target="MeterSessionTasks_Name" Category="Contains" />
+    <Link Source="MeterSessionTasks" Target="MeterSessionTasks_StartDate" Category="Contains" />
+    <Link Source="MeterSessionTasks_DataSetComponentId" Target="DataSetComponents_Id" Category="Foreign Key" Label="FK_MeterSessionTasks_0_0" />
+    <Link Source="MeterSessionTypes" Target="MeterSessionTypes_Description" Category="Contains" />
+    <Link Source="MeterSessionTypes" Target="MeterSessionTypes_Id" Category="Contains" />
+    <Link Source="MeterSessionTypes" Target="MeterSessionTypes_Name" Category="Contains" />
+    <Link Source="MeterSession_MeterId" Target="Meters_Id" Category="Foreign Key" Label="FK_MeterSession_2_0" />
+    <Link Source="MeterSession_SessionSettingId" Target="MeterSessionSettings_Id" Category="Foreign Key" Label="FK_MeterSession_1_0" />
+    <Link Source="MeterSession_SessionStatusId" Target="MeterSessionStatuses_Id" Category="Foreign Key" Label="FK_MeterSession_0_0" />
+    <Link Source="Meters" Target="Meters_EnergySupplyId" Category="Contains" />
+    <Link Source="Meters" Target="Meters_Id" Category="Contains" />
+    <Link Source="Meters" Target="Meters_MeterManufacturerId" Category="Contains" />
+    <Link Source="Meters" Target="Meters_Model" Category="Contains" />
+    <Link Source="Meters" Target="Meters_RemoteDeviceId" Category="Contains" />
+    <Link Source="Meters" Target="Meters_SerialNumber" Category="Contains" />
+    <Link Source="Meters_EnergySupplyId" Target="EnergySupplies_Id" Category="Foreign Key" Label="FK_Meters_2_0" />
+    <Link Source="Meters_MeterManufacturerId" Target="MeterManufacturers_Id" Category="Foreign Key" Label="FK_Meters_1_0" />
+    <Link Source="Meters_RemoteDeviceId" Target="RemoteDevices_Id" Category="Foreign Key" Label="FK_Meters_0_0" />
+    <Link Source="OnDemandMeterSessions" Target="OnDemandMeterSessions_DataSetId" Category="Contains" />
+    <Link Source="OnDemandMeterSessions" Target="OnDemandMeterSessions_Guid" Category="Contains" />
+    <Link Source="OnDemandMeterSessions" Target="OnDemandMeterSessions_Id" Category="Contains" />
+    <Link Source="OnDemandMeterSessions" Target="OnDemandMeterSessions_MeterId" Category="Contains" />
+    <Link Source="OnDemandMeterSessions" Target="OnDemandMeterSessions_MeterSessionId" Category="Contains" />
+    <Link Source="OnDemandMeterSessions" Target="OnDemandMeterSessions_SessionTypeId" Category="Contains" />
+    <Link Source="OnDemandMeterSessions" Target="OnDemandMeterSessions_UserSessionId" Category="Contains" />
+    <Link Source="OnDemandMeterSessions_DataSetId" Target="DataSets_Id" Category="Foreign Key" Label="FK_OnDemandMeterSessions_4_0" />
+    <Link Source="OnDemandMeterSessions_MeterId" Target="Meters_Id" Category="Foreign Key" Label="FK_OnDemandMeterSessions_0_0" />
+    <Link Source="OnDemandMeterSessions_MeterSessionId" Target="MeterSession_Id" Category="Foreign Key" Label="FK_OnDemandMeterSessions_3_0" />
+    <Link Source="OnDemandMeterSessions_SessionTypeId" Target="MeterSessionTypes_Id" Category="Foreign Key" Label="FK_OnDemandMeterSessions_2_0" />
+    <Link Source="OnDemandMeterSessions_UserSessionId" Target="UserSessions_Id" Category="Foreign Key" Label="FK_OnDemandMeterSessions_1_0" />
+    <Link Source="PhoneCompanies" Target="PhoneCompanies_AddressId" Category="Contains" />
+    <Link Source="PhoneCompanies" Target="PhoneCompanies_Id" Category="Contains" />
+    <Link Source="PhoneCompanies" Target="PhoneCompanies_Name" Category="Contains" />
+    <Link Source="PhoneCompanies_AddressId" Target="Addresses_Id" Category="Foreign Key" Label="FK_PhoneCompanies_0_0" />
+    <Link Source="PostalCodes" Target="PostalCodes_CityId" Category="Contains" />
+    <Link Source="PostalCodes" Target="PostalCodes_Code" Category="Contains" />
+    <Link Source="PostalCodes" Target="PostalCodes_Id" Category="Contains" />
+    <Link Source="PostalCodes_CityId" Target="Cities_Id" Category="Foreign Key" Label="FK_PostalCodes_0_0" />
+    <Link Source="ReconnectionSchedules" Target="ReconnectionSchedules_Id" Category="Contains" />
+    <Link Source="ReconnectionSchedules" Target="ReconnectionSchedules_MeterSessionReconnectionSchemaId" Category="Contains" />
+    <Link Source="ReconnectionSchedules" Target="ReconnectionSchedules_Schedule" Category="Contains" />
+    <Link Source="ReconnectionSchedules_MeterSessionReconnectionSchemaId" Target="MeterSessionReconnectionSchemas_Id" Category="Foreign Key" Label="FK_ReconnectionSchedules_0_0" />
+    <Link Source="RemoteDevices" Target="RemoteDevices_Id" Category="Contains" />
+    <Link Source="RemoteDevices" Target="RemoteDevices_Model" Category="Contains" />
+    <Link Source="RemoteDevices" Target="RemoteDevices_SIMCardId" Category="Contains" />
+    <Link Source="RemoteDevices" Target="RemoteDevices_SerialNumber" Category="Contains" />
+    <Link Source="RemoteDevices" Target="RemoteDevices_VendorId" Category="Contains" />
+    <Link Source="RemoteDevices_SIMCardId" Target="SIMCards_Id" Category="Foreign Key" Label="FK_RemoteDevices_1_0" />
+    <Link Source="RemoteDevices_VendorId" Target="Vendors_Id" Category="Foreign Key" Label="FK_RemoteDevices_0_0" />
+    <Link Source="RemoteMeterSessionSettings" Target="RemoteMeterSessionSettings_Id" Category="Contains" />
+    <Link Source="RemoteMeterSessionSettings" Target="RemoteMeterSessionSettings_MeterSessionSettingId" Category="Contains" />
+    <Link Source="RemoteMeterSessionSettings" Target="RemoteMeterSessionSettings_UseMeterMAXProtocol" Category="Contains" />
+    <Link Source="RemoteMeterSessionSettings_MeterSessionSettingId" Target="MeterSessionSettings_Id" Category="Foreign Key" Label="FK_RemoteMeterSessionSettings_0_0" />
+    <Link Source="Roles" Target="Roles_Description" Category="Contains" />
+    <Link Source="Roles" Target="Roles_Id" Category="Contains" />
+    <Link Source="Roles" Target="Roles_Name" Category="Contains" />
+    <Link Source="SIMCardServices" Target="SIMCardServices_Description" Category="Contains" />
+    <Link Source="SIMCardServices" Target="SIMCardServices_Id" Category="Contains" />
+    <Link Source="SIMCardServices" Target="SIMCardServices_Name" Category="Contains" />
+    <Link Source="SIMCards" Target="SIMCards_Id" Category="Contains" />
+    <Link Source="SIMCards" Target="SIMCards_PhoneCompanyId" Category="Contains" />
+    <Link Source="SIMCards" Target="SIMCards_PhoneNumber" Category="Contains" />
+    <Link Source="SIMCards" Target="SIMCards_SerialNumber" Category="Contains" />
+    <Link Source="SIMCards" Target="SIMCards_ServiceId" Category="Contains" />
+    <Link Source="SIMCards_PhoneCompanyId" Target="PhoneCompanies_Id" Category="Foreign Key" Label="FK_SIMCards_1_0" />
+    <Link Source="SIMCards_ServiceId" Target="SIMCardServices_Id" Category="Foreign Key" Label="FK_SIMCards_0_0" />
+    <Link Source="States" Target="States_CountryId" Category="Contains" />
+    <Link Source="States" Target="States_Id" Category="Contains" />
+    <Link Source="States" Target="States_Name" Category="Contains" />
+    <Link Source="States_CountryId" Target="Countries_Id" Category="Foreign Key" Label="FK_States_0_0" />
+    <Link Source="Streets" Target="Streets_Id" Category="Contains" />
+    <Link Source="UserSessions" Target="UserSessions_EndDate" Category="Contains" />
+    <Link Source="UserSessions" Target="UserSessions_Id" Category="Contains" />
+    <Link Source="UserSessions" Target="UserSessions_StartDate" Category="Contains" />
+    <Link Source="UserSessions" Target="UserSessions_UserId" Category="Contains" />
+    <Link Source="UserSessions_UserId" Target="Users_Id" Category="Foreign Key" Label="FK_UserSessions_0_0" />
+    <Link Source="Users" Target="Users_Id" Category="Contains" />
+    <Link Source="Users" Target="Users_Identification" Category="Contains" />
+    <Link Source="Users" Target="Users_Password" Category="Contains" />
+    <Link Source="Users" Target="Users_RoleId" Category="Contains" />
+    <Link Source="Users" Target="Users_UserName" Category="Contains" />
+    <Link Source="Users_RoleId" Target="Roles_Id" Category="Foreign Key" Label="FK_Users_0_0" />
+    <Link Source="Vendors" Target="Vendors_AddressId" Category="Contains" />
+    <Link Source="Vendors" Target="Vendors_Description" Category="Contains" />
+    <Link Source="Vendors" Target="Vendors_Id" Category="Contains" />
+    <Link Source="Vendors" Target="Vendors_Name" Category="Contains" />
+    <Link Source="Vendors_AddressId" Target="Addresses_Id" Category="Foreign Key" Label="FK_Vendors_0_0" />
+  </Links>
+  <Categories>
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="Database" />
+    <Category Id="Field" />
+    <Category Id="Field Foreign" />
+    <Category Id="Field Optional" />
+    <Category Id="Field Primary" />
+    <Category Id="Foreign Key" />
+    <Category Id="Table" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="Description" Label="Description" Description="Description" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Table" ValueLabel="True">
+      <Condition Expression="HasCategory('Table')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Schema" ValueLabel="True">
+      <Condition Expression="HasCategory('Schema')" />
+      <Setter Property="Background" Value="#FF7F9169" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Field Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="True">
+      <Condition Expression="HasCategory('Field')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Database" ValueLabel="True">
+      <Condition Expression="HasCategory('Database')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+</DirectedGraph>

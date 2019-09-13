@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph DataVirtualized="True" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @3 Type=BillingRegister)" Category="CodeSchema_Class" Bounds="-229.149383310991,92.8596805834997,136.05,25" CodeSchemaProperty_IsInternal="True" CommonLabel="BillingRegister" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="BillingRegister" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/BillingRegister.cs StartLineNumber=6 StartCharacterOffset=10 EndLineNumber=6 EndCharacterOffset=25)" UseManualLocation="True" />
+    <Node Id="(@1 @3 Type=LoadProfile)" Category="CodeSchema_Class" Bounds="-78.7247586897619,32.946584479543,120.623333333333,25" CodeSchemaProperty_IsInternal="True" CommonLabel="LoadProfile" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="LoadProfile" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/LoadProfile.cs StartLineNumber=6 StartCharacterOffset=10 EndLineNumber=6 EndCharacterOffset=21)" UseManualLocation="True" />
+    <Node Id="(@1 @3 Type=LoadProfileRecordDay)" Category="CodeSchema_Class" Bounds="-63.0993833109918,94.3234470000102,177.866666666667,25" CodeSchemaProperty_IsInternal="True" CommonLabel="LoadProfileRecordDay" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="LoadProfileRecordDay" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/LoadProfileRecordDay.cs StartLineNumber=6 StartCharacterOffset=10 EndLineNumber=6 EndCharacterOffset=30)" UseManualLocation="True" />
+    <Node Id="(@1 @3 Type=Register)" Category="CodeSchema_Class" Bounds="-215.338958189449,22.7044563746363,103.686666666666,25" CodeSchemaProperty_IsInternal="True" CommonLabel="Register" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="Register" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/Register.cs StartLineNumber=6 StartCharacterOffset=10 EndLineNumber=6 EndCharacterOffset=18)" UseManualLocation="True" />
+    <Node Id="@10" Category="CodeSchema_Class" Bounds="565.618007101358,12.7380370998849,112.196666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="Customer" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="Customer" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/Customer.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=25)" />
+    <Node Id="@11" Category="CodeSchema_Class" Bounds="-145.189632843973,37.2949885008203,102.41,25" CodeSchemaProperty_IsPublic="True" CommonLabel="DataSet" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="DataSet" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/DataSet.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=24)" UseManualLocation="True" />
+    <Node Id="@12" Category="CodeSchema_Class" Bounds="184.424711886373,-164.489604782354,165.213333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="DataSetComponent" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="DataSetComponent" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/DataSetComponent.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=33)" UseManualLocation="True" />
+    <Node Id="@13" Category="CodeSchema_Class" Bounds="491.133007101357,-43.9494629001151,133.166666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="EnergySupply" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="EnergySupply" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/EnergySupply.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=29)" />
+    <Node Id="@14" Category="CodeSchema_Class" Bounds="400.523007101357,17.0846122406612,134.386666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="GeoCordinate" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="GeoCordinate" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/GeoCordinate.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=29)" />
+    <Node Id="@15" Category="CodeSchema_Class" Bounds="528.431340434691,-214.011962900115,92.5699999999999,25" CodeSchemaProperty_IsPublic="True" CommonLabel="Meter" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="Meter" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/Meter.cs StartLineNumber=4 StartCharacterOffset=17 EndLineNumber=4 EndCharacterOffset=22)" />
+    <Node Id="@16" Category="CodeSchema_Class" Bounds="862.756340434691,-39.6028877593388,163.92,25" CodeSchemaProperty_IsPublic="True" CommonLabel="MeterManufacturer" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="MeterManufacturer" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/MeterManufacturer.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=34)" />
+    <Node Id="@17" Category="CodeSchema_Class" Bounds="-526.774564223695,-164.688019091421,190.896666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="MeterProtocolParameter" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="MeterProtocolParameter" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/MeterProtocolParameter.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=39)" UseManualLocation="True" />
+    <Node Id="@18" Category="CodeSchema_Class" Bounds="240.649673768024,-290.293172093033,132.133333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="MeterSession" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="MeterSession" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/MeterSession.cs StartLineNumber=7 StartCharacterOffset=17 EndLineNumber=7 EndCharacterOffset=29)" />
+    <Node Id="@19" Category="CodeSchema_Class" Bounds="7.05380663308989,-109.489504782354,178.11,25" CodeSchemaProperty_IsPublic="True" CommonLabel="MeterSessionItemTask" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="MeterSessionItemTask" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/MeterSessionItemTask.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=37)" UseManualLocation="True" />
+    <Node Id="@2" Category="CodeSchema_Assembly" AssemblyTimestamp="09/04/2019 11:41:15" Bounds="-573.388791865972,-370.293372093033,1640.06513230066,617.793373725455" CodeSchemaProperty_StrongName="Unir.TFG.MeterMAX.MDM.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" CommonLabel="Unir.TFG.MeterMAX.MDM.Domain" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" FilePath="$(458677b6-ba75-4bb6-86d3-31a7d1e9ee43.OutputPath)" Group="Expanded" Label="Unir.TFG.MeterMAX.MDM.Domain.dll" />
+    <Node Id="@20" Category="CodeSchema_Class" Bounds="-234.263659565309,-210.607457321424,185.96,25" CodeSchemaProperty_IsPublic="True" CommonLabel="MeterSessionParameter" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="MeterSessionParameter" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/MeterSessionParameter.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=38)" />
+    <Node Id="@21" Category="CodeSchema_Class" Bounds="-533.388791865972,-82.7170997668427,245.43,25" CodeSchemaProperty_IsPublic="True" CommonLabel="MeterSessionReconnectionSchema" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="MeterSessionReconnectionSchema" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/MeterSessionReconnectionSchema.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=47)" UseManualLocation="True" />
+    <Node Id="@22" Category="CodeSchema_Class" Bounds="7.55462060980034,-221.275759558794,154.236666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="MeterSessionTask" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="MeterSessionTask" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/MeterSessionTask.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=33)" UseManualLocation="True" />
+    <Node Id="@23" Category="CodeSchema_Class" Bounds="687.136340434691,-43.9494629001151,145.16,25" CodeSchemaProperty_IsPublic="True" CommonLabel="PhoneCompany" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="PhoneCompany" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/PhoneCompany.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=29)" />
+    <Node Id="@24" Category="CodeSchema_Class" Bounds="565.990130447607,69.4255370998851,120.283333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="PostalCode" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="PostalCode" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/PostalCode.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=27)" />
+    <Node Id="@25" Category="CodeSchema_Class" Bounds="610.282139966423,-157.328754039902,136.976666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="RemoteDevice" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="RemoteDevice" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/RemoteDevice.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=29)" />
+    <Node Id="@26" Category="CodeSchema_Class" Bounds="-451.997607345171,134.971855320347,84.04,25" CodeSchemaProperty_IsPublic="True" CommonLabel="Role" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="Role" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/Role.cs StartLineNumber=2 StartCharacterOffset=17 EndLineNumber=2 EndCharacterOffset=21)" UseManualLocation="True" />
+    <Node Id="@27" Category="CodeSchema_Class" Bounds="344.190133430313,-219.489704782354,109.023333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="Schedule" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="Schedule" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/Schedule.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=25)" UseManualLocation="True" />
+    <Node Id="@28" Category="CodeSchema_Enum" Bounds="411.20380663309,-157.328754039902,137.133333333333,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="ScheduleStatus" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Enum" Label="ScheduleStatus" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/ScheduleStatus.cs StartLineNumber=2 StartCharacterOffset=16 EndLineNumber=2 EndCharacterOffset=30)" />
+    <Node Id="@29" Category="CodeSchema_Class" Bounds="740.710473299756,-100.641254039902,106.12,25" CodeSchemaProperty_IsPublic="True" CommonLabel="SIMCard" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="SIMCard" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/SIMCard.cs StartLineNumber=7 StartCharacterOffset=17 EndLineNumber=7 EndCharacterOffset=24)" />
+    <Node Id="@30" Category="CodeSchema_Class" Bounds="391.602572454704,179.352787916608,87.5033333333331,25" CodeSchemaProperty_IsPublic="True" CommonLabel="State" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="State" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/State.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=22)" UseManualLocation="True" />
+    <Node Id="@31" Category="CodeSchema_Class" Bounds="717.20846378094,73.7721122406622,91.8466666666668,25" CodeSchemaProperty_IsPublic="True" CommonLabel="Street" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="Street" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/Street.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=23)" />
+    <Node Id="@32" Category="CodeSchema_Class" Bounds="-460.665615331004,75.7189931037005,84.7866666666666,25" CodeSchemaProperty_IsPublic="True" CommonLabel="User" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="User" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/User.cs StartLineNumber=7 StartCharacterOffset=17 EndLineNumber=7 EndCharacterOffset=21)" UseManualLocation="True" />
+    <Node Id="@33" Category="CodeSchema_Class" Bounds="-473.616373761682,14.8639274376594,124.35,25" CodeSchemaProperty_IsPublic="True" CommonLabel="UserSession" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="UserSession" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/UserSession.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=28)" UseManualLocation="True" />
+    <Node Id="@34" Category="CodeSchema_Class" Bounds="611.257139966423,-100.641254039902,99.0266666666666,25" CodeSchemaProperty_IsPublic="True" CommonLabel="Vendor" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="Vendor" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/Vendor.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=23)" />
+    <Node Id="@4" Category="CodeSchema_Namespace" Bounds="-553.388791865972,-330.293272093033,1600.06513230066,557.793173725455" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Unir.TFG.MeterMAX.MDM.Domain" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Label="Unir.TFG.MeterMAX.MDM.Domain" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="707.961340434691,12.7380370998849,103.51,25" CodeSchemaProperty_IsPublic="True" CommonLabel="Address" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="Address" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/Address.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=24)" />
+    <Node Id="@7" Category="CodeSchema_Class" Bounds="494.773279290634,124.425637099885,81.21,25" CodeSchemaProperty_IsPublic="True" CommonLabel="City" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="City" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/City.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=21)" UseManualLocation="True" />
+    <Node Id="@8" Category="CodeSchema_Class" Bounds="-251.668726199931,-70.4852715803354,225.7,25" CodeSchemaProperty_IsPublic="True" CommonLabel="CommunicationChannelSetting" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="CommunicationChannelSetting" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/CommunicationChannelSetting.cs StartLineNumber=7 StartCharacterOffset=17 EndLineNumber=7 EndCharacterOffset=44)" UseManualLocation="True" />
+    <Node Id="@9" Category="CodeSchema_Class" Bounds="240.361796970026,182.499801632422,103.086666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="Country" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="Country" SourceLocation="(Assembly=file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/Country.cs StartLineNumber=6 StartCharacterOffset=17 EndLineNumber=6 EndCharacterOffset=24)" UseManualLocation="True" />
+    <Node Id="Domain{F1239958-AFFD-45D3-974B-67C7FEEA994D}" Category="CodeMap_SolutionFolder" Bounds="-593.388791865972,-410.293472093033,1680.06513230066,677.793573725455" Group="Expanded" Label="Domain" />
+  </Nodes>
+  <Links>
+    <Link Source="@11" Target="@12" Category="References" Bounds="-69.733678364615,77.9669252597135,187.402899018937,148.147214067265" IsSourceVirtualized="True" Weight="5" />
+    <Link Source="@13" Target="@10" Category="References" Bounds="571.828799089597,-18.9550743757518,29.0378823714713,25.7200774520745" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@13" Target="@14" Category="References" Bounds="493.597384994113,-18.9550743757518,45.6866289507415,30.9826793812037" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@13" Target="@5" Category="References" Bounds="602.258788064239,-18.9550743757518,104.249850145422,29.2557593075178" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@15" Target="@13" Category="References" Bounds="559.861088653531,-189.017574375752,13.6057111710903,136.107132707856" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@15" Target="@16" Category="References" Bounds="620.912353515625,-193.078323364258,300.056945800781,148.05392074585" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@15" Target="@25" Category="References" Bounds="597.662759435438,-189.017574375752,50.2578861222388,27.37784821708" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@16" Target="@5" Category="References" Bounds="812.562705368897,-14.6028877593388,87.967408778187,24.8854157078298" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@18" Target="@11" Category="References" Bounds="-180.191660515786,81.6759890102713,58.8099981870745,26.6006605066034" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@18" Target="@12" Category="References" Bounds="273.682072794579,-265.293172093033,29.0911201274851,92.2204914802574" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="8">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@18" Target="@15" Category="References" Bounds="350.636022485783,-265.293172093033,172.488837821222,49.0921238969136" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@18" Target="@19" Category="References" Bounds="117.498094315284,-265.293172093033,174.657732985586,149.941258405844" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@18" Target="@20" Category="References" Bounds="-62.1466535113874,-266.378076887268,304.686338609046,54.194528288407" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@18" Target="@22" Category="References" Bounds="133.482456282517,-265.293172093033,133.018781481271,41.346028185549" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="11">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@19" Target="@22" Category="References" Bounds="90.0022735595703,-187.327590942383,7.97208404541016,77.8380889892578" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@2" Target="@4" Category="Contains" FetchingParent="@2" />
+    <Link Source="@20" Target="@17" Category="References" Bounds="-343.482754875858,-185.607457321424,123.244903331905,19.5120898972091" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@20" Target="@21" Category="References" Bounds="-376.213292207543,-185.607457321424,208.599448583431,99.0305689268848" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@20" Target="@8" Category="References" Bounds="-141.06376814052,-185.607457321424,1.86685318095419,106.123577962449" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@22" Target="@12" Category="References" Bounds="124.814434143684,-196.275759558794,93.4824542146097,29.1103036520961" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@22" Target="@19" Category="References" Bounds="83.0029754638672,-196.275756835938,8.12250518798828,77.8240203857422" IsSourceVirtualized="True" Weight="4" />
+    <Link Source="@23" Target="@5" Category="References" Bounds="759.716340434691,-18.9550743757518,0,22.6875" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@24" Target="@7" Category="References" Bounds="563.700898165717,94.4199256242484,41.8051369445693,25.3355105962194" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@25" Target="@29" Category="References" Bounds="704.128797445291,-132.334365515539,56.2108226320354,27.7082696343784" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@25" Target="@34" Category="References" Bounds="667.463359982435,-132.334365515539,7.33798432062883,23.1095547875362" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@27" Target="@11" Category="References" Bounds="-128.326188262787,9.00780803667033,27.8733873508148,36.7857913514286" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Contains" />
+    </Link>
+    <Link Source="@27" Target="@18" Category="References" Bounds="334.997589111328,-259.802215576172,52.3766479492188,40.3125152587891" IsSourceVirtualized="True" Weight="4" />
+    <Link Source="@27" Target="@28" Category="References" Bounds="415.005442342172,-194.489704782354,41.3190458887443,31.6793061232445" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@29" Target="@23" Category="References" Bounds="771.859321951157,-75.6468655155389,14.4025393916457,23.9767008107071" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@30" Target="@9" Category="References" Bounds="352.446390266892,192.859420118729,39.156182187812,0.840635092466698" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@32" Target="@26" Category="References" Bounds="-416.522435167029,100.718993103701,3.54725750798474,25.3397715007727" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@33" Target="@32" Category="References" Bounds="-415.865237632664,39.8639274376594,3.02075384200828,26.9112345043447" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@34" Target="@5" Category="References" Bounds="663.220336914063,-75.6468658447266,57.0506591796875,85.0224103927612" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@4" Target="(@1 @3 Type=BillingRegister)" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="(@1 @3 Type=LoadProfile)" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="(@1 @3 Type=LoadProfileRecordDay)" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="(@1 @3 Type=Register)" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@10" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@12" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@13" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@14" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@15" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@16" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@17" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@18" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@19" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@20" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@21" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@22" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@23" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@24" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@25" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@26" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@27" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@28" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@29" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@30" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@31" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@32" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@33" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@34" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@5" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@7" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@8" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@9" Category="Contains" FetchingParent="@4" />
+    <Link Source="@5" Target="@24" Category="References" Bounds="663.873041763509,37.7324256242482,66.3869495376836,28.1717488294342" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@5" Target="@31" Category="References" Bounds="760.415774046843,37.7324256242482,1.51378376339608,27.0537427908489" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@7" Target="@30" Category="References" Bounds="465.9733142086,149.420025624248,46.6722700121022,25.6636255998928" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="Domain{F1239958-AFFD-45D3-974B-67C7FEEA994D}" Target="@2" Category="Contains" FetchingParent="Domain{F1239958-AFFD-45D3-974B-67C7FEEA994D}" />
+  </Links>
+  <Categories>
+    <Category Id="CodeMap_SolutionFolder" Label="Solution Folder" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="Solution Folder" />
+    <Category Id="CodeSchema_Assembly" Label="Assembly" BasedOn="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Assembly" NavigationActionLabel="Assemblies" />
+    <Category Id="CodeSchema_Calls" Label="Calls" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Called By" OutgoingActionLabel="Calls" />
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Enum" Label="Enum" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Enum" NavigationActionLabel="Enums" />
+    <Category Id="CodeSchema_Namespace" Label="Namespace" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Type" Icon="CodeSchema_Namespace" NavigationActionLabel="Namespaces" />
+    <Category Id="CodeSchema_ReturnTypeLink" Label="Return" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Return types" OutgoingActionLabel="Return types" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="File" Label="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="File" NavigationActionLabel="Files" />
+    <Category Id="References" Label="References" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Referenced By" OutgoingActionLabel="References" />
+  </Categories>
+  <Properties>
+    <Property Id="AssemblyTimestamp" DataType="System.DateTime" />
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsFinal" Label="Is Final" Description="Flag to indicate the member is 'Final' and cannot be derived from" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="Is Internal" Description="Flag to indicate the method is 'Internal'" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsStatic" Label="Is Static" Description="Flag to indicate the member is a static member" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_StrongName" Label="StrongName" Description="StrongName" DataType="System.String" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DataVirtualized" Label="Data Virtualized" Description="If true, the graph can contain nodes and links that represent data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="DelayedChildNodesState" Label="Delayed Child Nodes State" Description="Unspecified if the delayed child nodes state is not specified. NotFetched if the group contains child nodes that are not fetched into the graph yet. Fetched if the group has all its delayed child nodes already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="DelayedCrossGroupLinksState" Label="Delayed Cross-Group Links State" Description="Unspecified if the delayed cross-group links state is not specified. NotFetched if delayed cross-group links on this node are not fetched into the graph yet. Fetched if all delayed cross-group links have already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="FetchingParent" DataType="Microsoft.VisualStudio.GraphModel.GraphNodeId" />
+    <Property Id="FilePath" Label="File Path" Description="File Path" DataType="System.String" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsProviderRoot" Label="IsProviderRoot" Description="IsProviderRoot" DataType="System.Boolean" />
+    <Property Id="IsSourceVirtualized" Label="Link Source Virtualized" Description="If true, the link source end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="IsTargetVirtualized" Label="Link Target Virtualized" Description="If true, the link target end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
+    <Property Id="Weight" Label="Weight" Description="Weight" DataType="System.Double" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(458677b6-ba75-4bb6-86d3-31a7d1e9ee43.OutputPathUri)" />
+    <Alias n="2" Id="(@1)" />
+    <Alias n="3" Id="Namespace=Unir.TFG.MeterMAX.MDM.Domain" />
+    <Alias n="4" Id="(@1 @3)" />
+    <Alias n="5" Id="(@1 @3 Type=Address)" />
+    <Alias n="7" Id="(@1 @3 Type=City)" />
+    <Alias n="8" Id="(@1 @3 Type=CommunicationChannelSetting)" />
+    <Alias n="9" Id="(@1 @3 Type=Country)" />
+    <Alias n="10" Id="(@1 @3 Type=Customer)" />
+    <Alias n="11" Id="(@1 @3 Type=DataSet)" />
+    <Alias n="12" Id="(@1 @3 Type=DataSetComponent)" />
+    <Alias n="13" Id="(@1 @3 Type=EnergySupply)" />
+    <Alias n="14" Id="(@1 @3 Type=GeoCordinate)" />
+    <Alias n="15" Id="(@1 @3 Type=Meter)" />
+    <Alias n="16" Id="(@1 @3 Type=MeterManufacturer)" />
+    <Alias n="17" Id="(@1 @3 Type=MeterProtocolParameter)" />
+    <Alias n="18" Id="(@1 @3 Type=MeterSession)" />
+    <Alias n="19" Id="(@1 @3 Type=MeterSessionItemTask)" />
+    <Alias n="20" Id="(@1 @3 Type=MeterSessionParameter)" />
+    <Alias n="21" Id="(@1 @3 Type=MeterSessionReconnectionSchema)" />
+    <Alias n="22" Id="(@1 @3 Type=MeterSessionTask)" />
+    <Alias n="23" Id="(@1 @3 Type=PhoneCompany)" />
+    <Alias n="24" Id="(@1 @3 Type=PostalCode)" />
+    <Alias n="25" Id="(@1 @3 Type=RemoteDevice)" />
+    <Alias n="26" Id="(@1 @3 Type=Role)" />
+    <Alias n="27" Id="(@1 @3 Type=Schedule)" />
+    <Alias n="28" Id="(@1 @3 Type=ScheduleStatus)" />
+    <Alias n="29" Id="(@1 @3 Type=SIMCard)" />
+    <Alias n="30" Id="(@1 @3 Type=State)" />
+    <Alias n="31" Id="(@1 @3 Type=Street)" />
+    <Alias n="32" Id="(@1 @3 Type=User)" />
+    <Alias n="33" Id="(@1 @3 Type=UserSession)" />
+    <Alias n="34" Id="(@1 @3 Type=Vendor)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Results" ValueLabel="True">
+      <Condition Expression="HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFBCFFBE" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Test Project" ValueLabel="Test Project">
+      <Condition Expression="HasCategory('CodeMap_TestProject')" />
+      <Setter Property="Icon" Value="CodeMap_TestProject" />
+      <Setter Property="Background" Value="#FF307A69" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Web Project" ValueLabel="Web Project">
+      <Condition Expression="HasCategory('CodeMap_WebProject')" />
+      <Setter Property="Icon" Value="CodeMap_WebProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Windows Store Project" ValueLabel="Windows Store Project">
+      <Condition Expression="HasCategory('CodeMap_WindowsStoreProject')" />
+      <Setter Property="Icon" Value="CodeMap_WindowsStoreProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Phone Project" ValueLabel="Phone Project">
+      <Condition Expression="HasCategory('CodeMap_PhoneProject')" />
+      <Setter Property="Icon" Value="CodeMap_PhoneProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Portable Library" ValueLabel="Portable Library">
+      <Condition Expression="HasCategory('CodeMap_PortableLibraryProject')" />
+      <Setter Property="Icon" Value="CodeMap_PortableLibraryProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="WPF Project" ValueLabel="WPF Project">
+      <Condition Expression="HasCategory('CodeMap_WpfProject')" />
+      <Setter Property="Icon" Value="CodeMap_WpfProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="VSIX Project" ValueLabel="VSIX Project">
+      <Condition Expression="HasCategory('CodeMap_VsixProject')" />
+      <Setter Property="Icon" Value="CodeMap_VsixProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Modeling Project" ValueLabel="Modeling Project">
+      <Condition Expression="HasCategory('CodeMap_ModelingProject')" />
+      <Setter Property="Icon" Value="CodeMap_ModelingProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Assembly" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#FF094167" />
+      <Setter Property="Stroke" Value="#FF094167" />
+      <Setter Property="Icon" Value="CodeSchema_Assembly" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Namespace" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#FF0E619A" />
+      <Setter Property="Stroke" Value="#FF0E619A" />
+      <Setter Property="Icon" Value="CodeSchema_Namespace" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Interface" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Interface')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Interface" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Struct" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Struct')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Struct" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enumeration" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Enum')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Enum" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Delegate" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Delegate')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Delegate" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Class" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#FF0E70C0" />
+      <Setter Property="Stroke" Value="#FF0E70C0" />
+      <Setter Property="Icon" Value="CodeSchema_Class" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Property')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Property" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Method" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Method') Or HasCategory('CodeSchema_CallStackUnresolvedMethod')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Method" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Event" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Event')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Event" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Field" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Out Parameter" ValueLabel="Has category">
+      <Condition Expression="CodeSchemaProperty_IsOut = 'True'" />
+      <Setter Property="Icon" Value="CodeSchema_OutParameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Parameter" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Parameter')" />
+      <Setter Property="Icon" Value="CodeSchema_Parameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Local Variable" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_LocalExpression')" />
+      <Setter Property="Icon" Value="CodeSchema_LocalExpression" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Externals" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FF424242" />
+      <Setter Property="Stroke" Value="#FF424242" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True">
+      <Condition Expression="HasCategory('InheritsFrom')" />
+      <Setter Property="Stroke" Value="#FF00A600" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True">
+      <Condition Expression="HasCategory('Implements')" />
+      <Setter Property="Stroke" Value="#8000A600" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Calls" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_Calls')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Function Pointer" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FunctionPointer')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Read" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FieldRead')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Write" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FieldWrite')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="DrawArrow" Value="true" />
+      <Setter Property="IsHidden" Value="false" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('InheritsFrom') And Target.HasCategory('CodeSchema_Class')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('Implements') And Target.HasCategory('CodeSchema_Interface')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Comment Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Source.HasCategory('Comment')" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Cursor Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCursorLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Disabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="DisabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="EnabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Instruction Pointer Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsInstructionPointerLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Callstack Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCurrentCallstackFrame" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Return" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeSchema_ReturnTypeLink')" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="References" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('References')" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Uses Attribute" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeSchema_AttributeUse')" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Solution Folder" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeMap_SolutionFolder')" />
+      <Setter Property="Background" Value="#FFDEBA83" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Project Reference" ValueLabel="Project Reference">
+      <Condition Expression="HasCategory('CodeMap_ProjectReference')" />
+      <Setter Property="Stroke" Value="#9A9A9A" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="External Reference" ValueLabel="External Reference">
+      <Condition Expression="HasCategory('CodeMap_ExternalReference')" />
+      <Setter Property="Stroke" Value="#9A9A9A" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="458677b6-ba75-4bb6-86d3-31a7d1e9ee43.OutputPath" Value="C:\Users\fyanicelli\Source\Repos\Unir.TFG.MeterMAX\Unir.TFG.MeterMAX.MDM\Unir.TFG.MeterMAX.MDM.Domain\bin\Debug\netstandard2.0\Unir.TFG.MeterMAX.MDM.Domain.dll" />
+    <Path Id="458677b6-ba75-4bb6-86d3-31a7d1e9ee43.OutputPathUri" Value="file:///C:/Users/fyanicelli/Source/Repos/Unir.TFG.MeterMAX/Unir.TFG.MeterMAX.MDM/Unir.TFG.MeterMAX.MDM.Domain/bin/Debug/netstandard2.0/Unir.TFG.MeterMAX.MDM.Domain.dll" />
+  </Paths>
+</DirectedGraph>

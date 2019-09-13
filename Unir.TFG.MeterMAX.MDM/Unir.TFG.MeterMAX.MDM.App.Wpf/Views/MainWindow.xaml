@@ -1,0 +1,213 @@
+﻿<Window
+    x:Class="Unir.TFG.MeterMAX.MDM.App.Wpf.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Unir.TFG.MeterMAX.MDM.App.Wpf.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:Unir.TFG.MeterMAX.MDM.App.Wpf.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:Unir.TFG.MeterMAX.MDM.App.Wpf.ViewModels"
+    Width="800"
+    Height="580"
+    Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    ResizeMode="NoResize"
+    TextElement.FontSize="13"
+    TextElement.FontWeight="Regular"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
+    WindowState="Maximized"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing">
+            <i:InvokeCommandAction Command="{Binding CloseCommand}" CommandParameter="" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <!--<Window.InputBindings>
+        <KeyBinding Modifiers="Alt" Key="F4" Command="{Binding CloseCommand}" />
+    </Window.InputBindings>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2" Background="{StaticResource PrimaryHueDarkBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Margin="10,0,0,0"
+                VerticalAlignment="Center"
+                Foreground="{StaticResource PrimaryHueDarkForegroundBrush}"
+                Style="{StaticResource MaterialDesignTitleTextBlock}"
+                Text="MeterMAX 1.0.0" />
+            <StackPanel
+                Grid.Column="1"
+                Margin="10,0"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Button
+                    x:Name="MinimizeButton"
+                    Width="25"
+                    Height="25"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Click="MinimizeButton_Click"
+                    Foreground="{StaticResource PrimaryHueDarkForegroundBrush}"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
+                    <materialDesign:PackIcon Kind="WindowMinimize" />
+                </Button>
+                <Button
+                    x:Name="CloseButton"
+                    Width="25"
+                    Height="25"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Command="{Binding CloseCommand}"
+                    Foreground="White"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
+                    <materialDesign:PackIcon Kind="Close" />
+                </Button>
+            </StackPanel>
+        </Grid>
+        <materialDesign:DialogHost Grid.Row="1" Identifier="RootDialog">
+            <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+                <materialDesign:DrawerHost.LeftDrawerContent>
+                    <DockPanel MinWidth="212">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="220" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid Background="{StaticResource PrimaryHueMidBrush}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <ToggleButton
+                                    Margin="16"
+                                    HorizontalAlignment="Right"
+                                    DockPanel.Dock="Top"
+                                    Foreground="{StaticResource PrimaryHueLightBrush}"
+                                    IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}"
+                                    Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
+                                <StackPanel Grid.Row="1" Margin="14,2,14,4">
+                                    <materialDesign:PackIcon
+                                        Width="72"
+                                        Height="72"
+                                        HorizontalAlignment="Center"
+                                        Foreground="{StaticResource PrimaryHueLightBrush}"
+                                        Kind="User" />
+                                    <TextBlock
+                                        Margin="8,8"
+                                        Foreground="{StaticResource PrimaryHueMidForegroundBrush}"
+                                        Style="{StaticResource MaterialDesignTitleTextBlock}"
+                                        Text="Hola, " />
+                                    <TextBlock
+                                        Margin="8,2"
+                                        Foreground="{StaticResource PrimaryHueMidForegroundBrush}"
+                                        Style="{StaticResource MaterialDesignTitleTextBlock}"
+                                        Text="{Binding UserAuthenticated, StringFormat='Bienvenido {0}'}" />
+                                </StackPanel>
+                            </Grid>
+                            <ListBox
+                                x:Name="ItemsListBox"
+                                Grid.Row="1"
+                                Margin="0,4,0,4"
+                                ItemsSource="{Binding Items}"
+                                PreviewMouseLeftButtonUp="ItemsListBox_PreviewMouseLeftButtonUp"
+                                SelectedIndex="0">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate DataType="viewModel:MainWindowItemViewModel">
+                                        <StackPanel Margin="32,0,32,0" Orientation="Horizontal">
+                                            <materialDesign:PackIcon
+                                                Width="24"
+                                                Height="24"
+                                                VerticalAlignment="Center"
+                                                Kind="{Binding IconKind}" />
+                                            <TextBlock
+                                                Margin="8,4,8,4"
+                                                VerticalAlignment="Center"
+                                                Text="{Binding Name}" />
+                                        </StackPanel>
+
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <Button
+                                Grid.Row="2"
+                                Margin="8"
+                                Command="{Binding LogOffCommand}"
+                                Content="Cerrar Sesión" />
+                        </Grid>
+
+                    </DockPanel>
+                </materialDesign:DrawerHost.LeftDrawerContent>
+                <DockPanel>
+                    <materialDesign:ColorZone
+                        Padding="16"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                        DockPanel.Dock="Top"
+                        Mode="PrimaryMid">
+                        <DockPanel>
+                            <ToggleButton
+                                x:Name="MenuToggleButton"
+                                IsChecked="False"
+                                Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
+                            <materialDesign:PopupBox
+                                DockPanel.Dock="Right"
+                                PlacementMode="BottomAndAlignRightEdges"
+                                StaysOpen="False">
+                                <StackPanel>
+                                    <Button
+                                        HorizontalAlignment="Right"
+                                        Content="AYUDA"
+                                        FontSize="12"
+                                        Style="{StaticResource MaterialDesignFlatButton}" />
+                                    <Button
+                                        HorizontalAlignment="Right"
+                                        Content="ACERCA DE..."
+                                        FontSize="12"
+                                        Style="{StaticResource MaterialDesignFlatButton}" />
+                                    <Separator />
+                                    <Button
+                                        Margin="8,2,8,2"
+                                        Command="{Binding CloseCommand}"
+                                        Content="SALIR"
+                                        FontSize="12"
+                                        Style="{StaticResource MaterialDesignFlatButton}" />
+                                </StackPanel>
+                            </materialDesign:PopupBox>
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="22">
+                                Sistema para lectura de Medidores bajo norma ANSI
+                            </TextBlock>
+                        </DockPanel>
+                    </materialDesign:ColorZone>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <ScrollViewer
+                            Grid.Row="1"
+                            Padding="{Binding ElementName=ItemsListBox, Path=SelectedItem.MarginRequirement}"
+                            HorizontalScrollBarVisibility="{Binding ElementName=ItemsListBox, Path=SelectedItem.HorizontalScrollBarVisibilityRequirement}"
+                            VerticalScrollBarVisibility="{Binding ElementName=ItemsListBox, Path=SelectedItem.VerticalScrollBarVisibilityRequirement}">
+                            <ContentControl Content="{Binding ElementName=ItemsListBox, Path=SelectedItem.Content}" />
+                        </ScrollViewer>
+                    </Grid>
+                </DockPanel>
+            </materialDesign:DrawerHost>
+        </materialDesign:DialogHost>
+    </Grid>
+
+</Window>

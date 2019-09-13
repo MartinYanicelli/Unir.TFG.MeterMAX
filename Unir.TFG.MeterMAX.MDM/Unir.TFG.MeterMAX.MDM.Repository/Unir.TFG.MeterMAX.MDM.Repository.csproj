@@ -4,4 +4,22 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SQLite" Version="2.0.1" />
+    <PackageReference Include="NLog" Version="4.6.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Unir.TFG.MeterMAX.MDM.Domain\Unir.TFG.MeterMAX.MDM.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Noanet.XamArch.Domain">
+      <HintPath>..\Packages\Noanet.XamArch\lib\netstandard2.0\Noanet.XamArch.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Noanet.XamArch.Infrastructure">
+      <HintPath>..\Packages\Noanet.XamArch\lib\netstandard2.0\Noanet.XamArch.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

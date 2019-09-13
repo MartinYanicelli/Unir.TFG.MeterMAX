@@ -1,0 +1,435 @@
+﻿<UserControl
+    x:Class="Unir.TFG.MeterMAX.MDM.App.Wpf.Views.ToolsAndServices.OnDemandMeterSessionStepTwoView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:controls="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:domainEnums="clr-namespace:Unir.TFG.MeterMAX.MDM.Domain.Enumerations;assembly=Unir.TFG.MeterMAX.MDM.Domain"
+    xmlns:local="clr-namespace:Unir.TFG.MeterMAX.MDM.App.Wpf.Views.ToolsAndServices"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ObjectDataProvider
+            x:Key="baudRateFromEnum"
+            MethodName="GetValues"
+            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="domainEnums:BaudRate" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider
+            x:Key="packetSizeFromEnum"
+            MethodName="GetValues"
+            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="domainEnums:PacketSize" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Button
+            Grid.Column="0"
+            Margin="4,0,12,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"
+            Style="{DynamicResource MaterialDesignFloatingActionMiniButton}">
+            <materialDesign:PackIcon Kind="StepBackward" />
+        </Button>
+        <Grid Grid.Column="1" DataContext="{Binding MeterSessionSetting}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <materialDesign:Card
+                Margin="4,4,4,8"
+                Padding="8"
+                Background="{DynamicResource PrimaryHueDarkBrush}"
+                Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}">
+                <TextBlock
+                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                    Text="PASO 2. Ajuste y revise los diferentes parámetros de comunicación implicados durante la Sesión de Comunicación."
+                    TextWrapping="WrapWithOverflow" />
+            </materialDesign:Card>
+            <materialDesign:Card
+                Grid.Row="1"
+                Margin="14,4,14,2"
+                Padding="8"
+                Background="{DynamicResource PrimaryHueDarkBrush}"
+                Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Margin="0,5,0,5"
+                            HorizontalAlignment="Center"
+                            FontWeight="Bold"
+                            Foreground="{StaticResource SecondaryAccentBrush}"
+                            Style="{StaticResource MaterialDesignTitleTextBlock}"
+                            Text="{Binding Name}" />
+                        <TextBlock
+                            Grid.Row="1"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource MaterialDesignBody1TextBlock}"
+                            Text="NOMBRE DE PLANTILLA" />
+                    </Grid>
+                    <Grid Grid.Column="1" HorizontalAlignment="Right">
+                        <Grid Width="260" Margin="0,10,0,10">
+                            <TextBox
+                                Margin="6,0,6,0"
+                                materialDesign:HintAssist.Foreground="{StaticResource SecondaryAccentBrush}"
+                                materialDesign:HintAssist.Hint="INTENTOS INTERNOS DE RECONEXIÓN"
+                                materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource SecondaryAccentBrush}"
+                                BorderBrush="{StaticResource PrimaryHueDarkForegroundBrush}"
+                                FontFamily="Champagne &amp; Limousines"
+                                FontSize="12"
+                                Foreground="{StaticResource PrimaryHueDarkForegroundBrush}"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                TabIndex="0"
+                                Text="{Binding InternalReconnectionAttempts, Mode=TwoWay}" />
+                            <TextBlock
+                                Margin="5"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                FontSize="12"
+                                Foreground="{StaticResource PrimaryHueDarkForegroundBrush}"
+                                Text="[1-6]" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </materialDesign:Card>
+            <TabControl
+                Grid.Row="2"
+                Margin="14,4,14,8"
+                Style="{StaticResource MaterialDesignTabControl}">
+                <TabItem DataContext="{Binding CommunicationChannelSetting}" Header="COMUNICACIÓN">
+                    <materialDesign:Card
+                        Margin="14,10,15,8"
+                        Padding="8"
+                        Background="white"
+                        Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
+                        <Grid Margin="10,4,10,4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="5*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid Width="260" Margin="0,10,0,10">
+                                <TextBox
+                                    Margin="6,0,6,0"
+                                    materialDesign:HintAssist.Hint="Espera de Envío ACK"
+                                    FontFamily="Champagne &amp; Limousines"
+                                    FontSize="14"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    TabIndex="0"
+                                    Text="{Binding SendAckResponseThershold, Mode=TwoWay}" />
+                                <TextBlock
+                                    Margin="5"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    FontSize="12"
+                                    Foreground="{StaticResource PrimaryHueMidBrush}"
+                                    Text="[Milisegundos]" />
+                            </Grid>
+                            <Grid
+                                Grid.Row="1"
+                                Width="260"
+                                Margin="0,10,0,10">
+                                <TextBox
+                                    Margin="6,0,6,0"
+                                    materialDesign:HintAssist.Hint="Timeout Tráfico del Canal"
+                                    FontFamily="Champagne &amp; Limousines"
+                                    FontSize="14"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    TabIndex="1"
+                                    Text="{Binding ChannelTrafficTimeout, Mode=TwoWay}" />
+                                <TextBlock
+                                    Margin="5"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    FontSize="12"
+                                    Foreground="{StaticResource PrimaryHueMidBrush}"
+                                    Text="[Segundos]" />
+                            </Grid>
+                            <Grid
+                                Grid.Row="2"
+                                Width="260"
+                                Margin="0,10,0,10">
+                                <TextBox
+                                    Margin="6,0,6,0"
+                                    materialDesign:HintAssist.Hint="Timeout Inter-Caracter"
+                                    FontFamily="Champagne &amp; Limousines"
+                                    FontSize="14"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    TabIndex="2"
+                                    Text="{Binding InterCharacterTimeout, Mode=TwoWay}" />
+                                <TextBlock
+                                    Margin="5"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    FontSize="12"
+                                    Foreground="{StaticResource PrimaryHueMidBrush}"
+                                    Text="[Segundos]" />
+                            </Grid>
+                            <Grid
+                                Grid.Row="3"
+                                Width="260"
+                                Margin="0,10,0,10">
+                                <TextBox
+                                    Margin="6,0,6,0"
+                                    materialDesign:HintAssist.Hint="Timeout de Respuesta"
+                                    FontFamily="Champagne &amp; Limousines"
+                                    FontSize="14"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    TabIndex="3"
+                                    Text="{Binding ResponseTimeout, Mode=TwoWay}" />
+                                <TextBlock
+                                    Margin="5"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    FontSize="12"
+                                    Foreground="{StaticResource PrimaryHueMidBrush}"
+                                    Text="[Segundos]" />
+                            </Grid>
+                            <Grid
+                                Grid.Column="2"
+                                Width="260"
+                                Margin="0,10,0,10">
+                                <ComboBox
+                                    MinWidth="72"
+                                    Margin="6,0,6,0"
+                                    materialDesign:HintAssist.Hint="Velocidad Transmisión [Baudrate]"
+                                    ItemsSource="{Binding Source={StaticResource baudRateFromEnum}}"
+                                    SelectedItem="{Binding Path=BaudRate}"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                    <ComboBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel />
+                                        </ItemsPanelTemplate>
+                                    </ComboBox.ItemsPanel>
+                                </ComboBox>
+                            </Grid>
+                            <Grid
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Width="260"
+                                Margin="0,10,0,10">
+                                <ComboBox
+                                    MinWidth="72"
+                                    Margin="6,0,6,0"
+                                    materialDesign:HintAssist.Hint="Tamaño de Paquetes [Bytes]"
+                                    ItemsSource="{Binding Source={StaticResource packetSizeFromEnum}}"
+                                    SelectedItem="{Binding Path=PacketSize}"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                    <ComboBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel />
+                                        </ItemsPanelTemplate>
+                                    </ComboBox.ItemsPanel>
+                                </ComboBox>
+                            </Grid>
+                            <Grid
+                                Grid.Row="2"
+                                Grid.Column="2"
+                                Width="260"
+                                Margin="0,10,0,10">
+                                <TextBox
+                                    Margin="6,0,6,0"
+                                    materialDesign:HintAssist.Hint="N° de Paquetes"
+                                    FontFamily="Champagne &amp; Limousines"
+                                    FontSize="14"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    TabIndex="6"
+                                    Text="{Binding NumberOfPackets, Mode=TwoWay}" />
+                                <TextBlock
+                                    Margin="5"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    FontSize="12"
+                                    Foreground="{StaticResource PrimaryHueMidBrush}"
+                                    Text="[1-3]" />
+                            </Grid>
+                            <Grid
+                                Grid.Row="3"
+                                Grid.Column="2"
+                                Width="260"
+                                Margin="0,10,0,10">
+                                <TextBox
+                                    Margin="6,0,6,0"
+                                    materialDesign:HintAssist.Hint="N° de Reintentos"
+                                    FontFamily="Champagne &amp; Limousines"
+                                    FontSize="14"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    TabIndex="7"
+                                    Text="{Binding NumberOfRetries, Mode=TwoWay}" />
+                                <TextBlock
+                                    Margin="5"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    FontSize="12"
+                                    Foreground="{StaticResource PrimaryHueMidBrush}"
+                                    Text="[1-8]" />
+                            </Grid>
+                        </Grid>
+                    </materialDesign:Card>
+                </TabItem>
+                <TabItem DataContext="{Binding ProtocolSetting}" Header="PROTOCOLO">
+                    <materialDesign:Card
+                        Margin="14,10,15,8"
+                        Padding="8"
+                        Background="white"
+                        Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
+                        <Grid Margin="10,4,10,4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="5*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid Width="260" Margin="0,10,0,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="24" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="{Binding ElementName=MeterProtocolUserIdTextBox, Path=BorderBrush}"
+                                    Kind="CardTextOutline" />
+                                <TextBox
+                                    x:Name="MeterProtocolUserIdTextBox"
+                                    Grid.Column="1"
+                                    Margin="6,0,6,0"
+                                    materialDesign:HintAssist.Hint="Id Usuario"
+                                    FontFamily="Champagne &amp; Limousines"
+                                    FontSize="16"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    TabIndex="0"
+                                    Text="{Binding UserId, Mode=TwoWay}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="5"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    FontSize="12"
+                                    Foreground="{StaticResource PrimaryHueMidBrush}"
+                                    Text="[1-10]" />
+                            </Grid>
+                            <Grid
+                                Grid.Column="1"
+                                Width="260"
+                                Margin="0,10,0,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="24" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="{Binding ElementName=MeterProtocolUserNameTextBox, Path=BorderBrush}"
+                                    Kind="Account" />
+                                <TextBox
+                                    x:Name="MeterProtocolUserNameTextBox"
+                                    Grid.Column="1"
+                                    Margin="6,0,6,0"
+                                    materialDesign:HintAssist.Hint="Id Usuario"
+                                    FontFamily="Champagne &amp; Limousines"
+                                    FontSize="16"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    TabIndex="0"
+                                    Text="{Binding UserName, Mode=TwoWay}" />
+                            </Grid>
+
+                            <Grid
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Width="260">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="24" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="{Binding ElementName=MeterProtocolPasswordBox, Path=BorderBrush}"
+                                    Kind="Key" />
+                                <PasswordBox
+                                    x:Name="MeterProtocolPasswordBox"
+                                    Grid.Column="1"
+                                    Margin="6,0,6,8"
+                                    materialDesign:HintAssist.Foreground="Green"
+                                    materialDesign:HintAssist.Hint="Contraseña de Comunicación"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                                    FontFamily="Champagne &amp; Limousines"
+                                    FontSize="16"
+                                    Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                                    TabIndex="2" />
+                            </Grid>
+                        </Grid>
+                    </materialDesign:Card>
+                </TabItem>
+                <TabItem DataContext="{Binding ReconnectionSchema}" Header="RECONEXIÓN">
+                    <materialDesign:Card
+                        Margin="14,10,15,8"
+                        Padding="8"
+                        Background="white"
+                        Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
+                        <StackPanel Margin="10,4,10,4">
+                            <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Cronograma de Reintentos" />
+                            <ListView ItemsSource="{Binding ReconnectionSchedules}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Id" />
+                                        <GridViewColumn DisplayMemberBinding="{Binding Schedule, StringFormat='{}{0:hh\\:mm\\:ss} [HH:mm:ss]'}" Header="Tiempo de Espera" />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </StackPanel>
+                    </materialDesign:Card>
+                </TabItem>
+
+            </TabControl>
+        </Grid>
+        <Button
+            Name="MoveNextButton"
+            Grid.Column="2"
+            Margin="4,0,12,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Command="{Binding LoadStepThreeDataCommand}"
+            Style="{DynamicResource MaterialDesignFloatingActionAccentButton}">
+            <materialDesign:PackIcon Kind="StepForward" />
+        </Button>
+    </Grid>
+</UserControl>

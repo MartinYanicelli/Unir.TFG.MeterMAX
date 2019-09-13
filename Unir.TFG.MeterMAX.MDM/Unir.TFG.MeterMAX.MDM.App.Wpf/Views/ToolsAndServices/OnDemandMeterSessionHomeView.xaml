@@ -1,0 +1,82 @@
+﻿<UserControl
+    x:Class="Unir.TFG.MeterMAX.MDM.App.Wpf.Views.ToolsAndServices.OnDemandMeterSessionHomeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Unir.TFG.MeterMAX.MDM.App.Wpf.Views.ToolsAndServices"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:viewModels="clr-namespace:Unir.TFG.MeterMAX.MDM.App.Wpf.ViewModels"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+    <Grid>
+        <ScrollViewer
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Auto">
+            <Grid Margin="16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="256" />
+                </Grid.RowDefinitions>
+                <materialDesign:Transitioner
+                    Grid.Row="1"
+                    AutoApplyTransitionOrigins="True"
+                    SelectedIndex="{Binding CurrentStep, Mode=OneWay}">
+                    <!--<materialDesign:Transitioner.InputBindings>
+                        <KeyBinding Key="Left" Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}" />
+                        <KeyBinding Key="Right" Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" />
+                    </materialDesign:Transitioner.InputBindings>-->
+
+                    <!--  you can use a slide for each page, let's add a touch of fade for our first page  -->
+                    <materialDesign:TransitionerSlide OpeningEffect="{materialDesign:TransitionEffect FadeIn}">
+                        <local:OnDemandMeterSessionIntroView />
+                    </materialDesign:TransitionerSlide>
+
+                    <!--  now we are going to slide this in by combining some extra effects.  the inner content slides in, so we'll set the outer background and clip, to keep things nice  -->
+                    <materialDesign:TransitionerSlide>
+                        <materialDesign:TransitionerSlide.BackwardWipe>
+                            <materialDesign:CircleWipe />
+                        </materialDesign:TransitionerSlide.BackwardWipe>
+                        <materialDesign:TransitionerSlide.ForwardWipe>
+                            <materialDesign:SlideWipe Direction="Right" />
+                        </materialDesign:TransitionerSlide.ForwardWipe>
+                        <materialDesign:TransitionerSlide.OpeningEffects>
+                            <materialDesign:TransitionEffect Kind="SlideInFromLeft" Duration="0:0:0.8" />
+                            <materialDesign:TransitionEffect
+                                Kind="SlideInFromBottom"
+                                OffsetTime="0:0:0.15"
+                                Duration="0:0:0.8" />
+                        </materialDesign:TransitionerSlide.OpeningEffects>
+                        <local:OnDemandMeterSessionStepOneView />
+                    </materialDesign:TransitionerSlide>
+
+                    <!--  you can control (and create your own) wipes  -->
+                    <materialDesign:TransitioningContent>
+                        <local:OnDemandMeterSessionStepTwoView />
+                    </materialDesign:TransitioningContent>
+
+                    <materialDesign:TransitionerSlide>
+                        <materialDesign:TransitionerSlide.OpeningEffects>
+                            <materialDesign:TransitionEffect Kind="SlideInFromRight" Duration="0:0:0.8" />
+                            <materialDesign:TransitionEffect
+                                Kind="SlideInFromBottom"
+                                OffsetTime="0:0:0.15"
+                                Duration="0:0:0.8" />
+                        </materialDesign:TransitionerSlide.OpeningEffects>
+                        <local:OnDemandMeterSessionStepThreeView />
+                    </materialDesign:TransitionerSlide>
+
+                    <materialDesign:TransitioningContent>
+                        <local:OnDemandMeterSessionStepFourView />
+                    </materialDesign:TransitioningContent>
+
+                </materialDesign:Transitioner>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

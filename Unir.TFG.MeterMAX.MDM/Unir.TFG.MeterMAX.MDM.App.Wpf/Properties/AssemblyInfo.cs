@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Unir.TFG.MeterMAX.MDM.App.Wpf")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("MeterMAX")]
+[assembly: AssemblyDescription("Sistema para Lectura de Medidores Polifásicos bajo norma ANSI 12.19/21")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Unir.TFG.MeterMAX.MDM.App.Wpf")]
+[assembly: AssemblyCompany("UNIR - TFG")]
+[assembly: AssemblyProduct("MeterMAX")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -4,4 +4,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Noanet.XamArch.Domain">
+      <HintPath>..\Packages\Noanet.XamArch\lib\netstandard2.0\Noanet.XamArch.Domain.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

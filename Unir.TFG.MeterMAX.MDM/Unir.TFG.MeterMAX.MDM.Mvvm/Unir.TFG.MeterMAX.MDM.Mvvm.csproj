@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Unir.TFG.MeterMAX.MDM.Domain\Unir.TFG.MeterMAX.MDM.Domain.csproj" />
+    <ProjectReference Include="..\Unir.TFG.MeterMAX.MDM.Logic\Unir.TFG.MeterMAX.MDM.Logic.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Noanet.XamArch.Configuration">
+      <HintPath>..\Packages\Noanet.XamArch\lib\netstandard2.0\Noanet.XamArch.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Noanet.XamArch.Domain">
+      <HintPath>..\Packages\Noanet.XamArch\lib\netstandard2.0\Noanet.XamArch.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Noanet.XamArch.Logic">
+      <HintPath>..\Packages\Noanet.XamArch\lib\netstandard2.0\Noanet.XamArch.Logic.dll</HintPath>
+    </Reference>
+    <Reference Include="Noanet.XamArch.Mvvm">
+      <HintPath>..\Packages\Noanet.XamArch\lib\netstandard2.0\Noanet.XamArch.Mvvm.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CSharp.OperationResult" Version="0.1.6" />
+    <PackageReference Include="NLog" Version="4.6.6" />
+  </ItemGroup>
+
+</Project>
